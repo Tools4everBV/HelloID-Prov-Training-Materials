@@ -1,6 +1,5 @@
 $importSourcePath = "C:\Users\s.vandijk\Downloads\TEMP\DemoData\"
 $delimiter = ";"
-
 function Get-SourceConnectorData { 
     [CmdletBinding()]
     param (

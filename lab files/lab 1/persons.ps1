@@ -1,6 +1,5 @@
 $importSourcePath = "C:\Tools4ever\HelloID\Training\Connector\SourceData\"
 $delimiter = ";"
-
 function Get-SourceConnectorData { 
     [CmdletBinding()]
     param (
