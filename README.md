@@ -21,6 +21,6 @@ This repository is intended for HelloID training purposes only.
 
 - A local directory on the server running the 'HelloID provisioning agent' containing the DEMO data from the [source data](https://github.com/Tools4everBV/HelloID-Conn-Prov-Training-Materials/tree/main/lab%20files/lab%201/source%20data) folder of this repository.
 
-- The 'Execute on-premises' switch from the 'System' tab need to be ON.
+- The 'Execute on-premises' switch from the 'System' tab needs to be enabled.
 
 ![image](./assets/hid.png)
