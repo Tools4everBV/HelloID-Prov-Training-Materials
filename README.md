@@ -19,7 +19,7 @@ This repository is intended for HelloID training purposes only.
 
 - A local running version of the 'HelloID provisioning agent'.
 
-- A local directory on the server running the 'HelloID provisioning agent' containing the DEMO data from the 'lab files\lab 1\source data' folder of this repository.
+- A local directory on the server running the 'HelloID provisioning agent' containing the DEMO data from the '[source data](lab files/lab 1/source data)' folder of this repository.
 
 - The 'Execute on-premises' switch from the 'System' tab need to be ON.
 
