@@ -1,8 +1,8 @@
-# HelloID Provisioning training material by Tools4ever
+# HelloID Provisioning training materials by Tools4ever
  
 ![image](./assets/logo.png)
 
-## This is a HelloID Provisioning training material repository
+## This is a HelloID Provisioning training materials repository
 
 The _'HelloID-Prov-Training-Materials'_ examples need to be executed 'on-premises'. Make sure you have a local 'HelloID provisioning agent' running, and the 'Execute on-premises' switch is toggled on for the connector.
 
