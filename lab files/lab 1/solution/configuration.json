@@ -1,0 +1,12 @@
+[
+    {
+      "key": "Path",
+      "type": "input",
+      "defaultValue": "",
+      "templateOptions": {
+        "label": "Directory containing the source data files",
+        "placeholder": "Please enter the path for the local source data directory",
+        "required": true
+      }
+    }
+  ]

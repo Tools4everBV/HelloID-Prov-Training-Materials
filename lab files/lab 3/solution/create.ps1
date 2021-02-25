@@ -1,8 +1,16 @@
-
 #Initialize default properties
+$c = $configuration | ConvertFrom-Json;
+$path = $($c.Path)
+$path = $path -replace '[\\/]?[\\/]$'
+$file = $($c.FileName)
+$exportPath = $path + "\" + $file
+$delimiter = ";"
+
 $p = $person | ConvertFrom-Json;
+$m = $manager | ConvertFrom-Json;
+
 $success = $False;
-$auditMessage = "for person " + $p.DisplayName;
+$auditLogs = New-Object Collections.Generic.List[PSCustomObject];
 
 $account_guid = $p.externalId
 
@@ -20,27 +28,31 @@ $account = [PSCustomObject]@{
     manager     = $p.PrimaryManager.DisplayName;
 }
 
-$path = "<Use connector configuration>"
-$file = $path + "<Use connector configuration>"
-$Delimiter = ";"
-
 Try {
     if (-Not($dryRun -eq $True)) {
-        #please enter your custom logic here
+        $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
     }
     $success = $True;
-    $auditMessage = "export succesfully";
+    $auditLogs.Add([PSCustomObject]@{
+            # Action = "CreateAccount"; Optionally specify a different action for this audit log
+            Message = "export succesfully";
+            IsError = $False;
+        });
 }
 
 Catch {
-    $auditMessage = "export failed"
+    $auditLogs.Add([PSCustomObject]@{
+            # Action = "CreateAccount"; Optionally specify a different action for this audit log
+            Message = "export failed";
+            IsError = $True;
+        });
 }
 
 #build up result
 $result = [PSCustomObject]@{ 
     Success          = $success;
     AccountReference = $account_guid;
-    AuditDetails     = $auditMessage;
+    AuditLogs        = $auditLogs;
     Account          = $account;
 };
 
