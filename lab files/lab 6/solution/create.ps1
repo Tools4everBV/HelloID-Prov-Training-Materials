@@ -92,14 +92,34 @@ $account = [PSCustomObject]@{
 
 Try {
     if (-Not($dryRun -eq $True)) {
-        $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
+        #Before exporting the $account you need to check in here if the user is not already present in the collection
+        $create = $True
+        $fileExists = Test-Path $exportPath
+        if ($fileExists -eq $True) { $cache = Import-Csv $exportPath -Delimiter $delimiter } Else { $cache = $null }
+        
+        #Check if account reference is already in the CSV file
+        if((![string]::IsNullOrEmpty($cache)) -and ($cache | where {$_.externalId -eq $account_guid})) 
+        {
+            $create = $False
+            $success = $True
+            $auditLogs.Add([PSCustomObject]@{
+                # Action = "CreateAccount"; Optionally specify a different action for this audit log
+                Message = "Correlation record found $($account_guid).";
+                IsError = $False;
+            });
+        }
+        
+        if($create)
+        {
+            $account | Export-Csv $exportPath -Delimiter $delimiter -NoTypeInformation -Append
+            $success = $True;
+            $auditLogs.Add([PSCustomObject]@{
+                # Action = "CreateAccount"; Optionally specify a different action for this audit log
+                Message = "export succesfull for record $($account_guid)";
+                IsError = $False;
+            });
+        }
     }
-    $success = $True;
-    $auditLogs.Add([PSCustomObject]@{
-            # Action = "CreateAccount"; Optionally specify a different action for this audit log
-            Message = "export succesfully";
-            IsError = $False;
-        });
 }
 Catch {
     $auditLogs.Add([PSCustomObject]@{

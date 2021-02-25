@@ -39,7 +39,6 @@ Try {
             IsError = $False;
         });
 }
-
 Catch {
     $auditLogs.Add([PSCustomObject]@{
             # Action = "CreateAccount"; Optionally specify a different action for this audit log

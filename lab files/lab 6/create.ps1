@@ -98,11 +98,10 @@ Try {
     $success = $True;
     $auditLogs.Add([PSCustomObject]@{
             # Action = "CreateAccount"; Optionally specify a different action for this audit log
-            Message = "export succesfully";
+            Message = "export succesfull";
             IsError = $False;
         });
 }
-
 Catch {
     $auditLogs.Add([PSCustomObject]@{
             # Action = "CreateAccount"; Optionally specify a different action for this audit log
