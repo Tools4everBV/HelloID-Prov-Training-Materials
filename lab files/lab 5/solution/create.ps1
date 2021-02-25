@@ -77,17 +77,17 @@ $sAMAccountName = $p.Accounts.MicrosoftActiveDirectory.sAMAccountName; #Extend y
 
 #Change mapping here
 $account = [PSCustomObject]@{
-    displayName    = $nameFormatted;
-    firstName      = $p.Name.NickName;
-    lastName       = $p.Name.FamilyName;
-    userName       = $p.UserName;
-    externalId     = $account_guid;
-    title          = $p.PrimaryContract.Title.Name;
-    department     = $p.PrimaryContract.Department.DisplayName;
-    startDate      = $p.PrimaryContract.StartDate;
-    endDate        = $p.PrimaryContract.EndDate;
-    manager        = $p.PrimaryManager.DisplayName;
-    sAMAccountName = $sAMAccountName; 
+    displayName      = $nameFormatted;
+    firstName        = $p.Name.NickName;
+    lastName         = $p.Name.FamilyName;
+    userName         = $p.UserName;
+    externalId       = $account_guid;
+    title            = $p.PrimaryContract.Title.Name;
+    department       = $p.PrimaryContract.Department.DisplayName;
+    startDate        = $p.PrimaryContract.StartDate;
+    endDate          = $p.PrimaryContract.EndDate;
+    manager          = $p.PrimaryManager.DisplayName;
+    ADsAMAccountName = $sAMAccountName; 
 }
 
 Try {
