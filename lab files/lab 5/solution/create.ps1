@@ -73,7 +73,7 @@ switch ($nameConvention) {
 }
 
 #Retrieve the sAMAccountName property for the user, please make sure to use the correct system idenifier from your system
-$sAMAccountName = #Extend your mapping to also include the sAMAccountName of a user from Active Directory
+$sAMAccountName = $p.Accounts.MicrosoftActiveDirectory.sAMAccountName; #Extend your mapping to also include the sAMAccountName of a user from Active Directory
 
 #Change mapping here
 $account = [PSCustomObject]@{
