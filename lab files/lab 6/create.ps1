@@ -93,7 +93,7 @@ $account = [PSCustomObject]@{
 Try {
     if (-Not($dryRun -eq $True)) {
         #Before exporting the $account you need to check in here if the user is not already present in the collection
-        $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
+        $account | Export-Csv $exportPath -Delimiter $delimiter -NoTypeInformation -Append
     }
     $success = $True;
     $auditLogs.Add([PSCustomObject]@{
