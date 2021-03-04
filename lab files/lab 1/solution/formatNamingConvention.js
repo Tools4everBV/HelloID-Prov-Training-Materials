@@ -1,3 +1,4 @@
+// Example function based on a switch statement.
 function formatNamingConvention()
 {
     switch(source.Naamgebruik_code)
@@ -20,3 +21,27 @@ function formatNamingConvention()
     }
 }
 formatNamingConvention()
+
+
+// Alternative example function based on a if else construction.
+function formatNamingConvention()
+{
+    let nameConv = source.Naamgebruik_code;
+    if (source.Naamgebruik_code === "0"){
+        nameConv = "B";
+    }
+    else if(source.Naamgebruik_code === "1"){
+        nameConv = "PB";
+    }
+    else if(source.Naamgebruik_code === "2"){
+        nameConv = "P";
+    }
+    else if(source.Naamgebruik_code === "3"){
+        nameConv = "BP";
+    }
+    else{
+        nameConv = "B";
+    }
+    return nameConv
+}
+formatNamingConvention();
