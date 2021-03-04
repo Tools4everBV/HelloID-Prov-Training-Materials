@@ -26,7 +26,7 @@ formatNamingConvention()
 // Alternative example function based on a if else construction.
 function formatNamingConvention()
 {
-    let nameConv = source.Naamgebruik_code;
+    let nameConv = "B";
     if (source.Naamgebruik_code === "0"){
         nameConv = "B";
     }
