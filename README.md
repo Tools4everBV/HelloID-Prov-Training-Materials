@@ -24,3 +24,6 @@ This repository is intended for HelloID training purposes only.
 - The 'Execute on-premises' switch from the 'System' tab needs to be enabled.
 
 ![image](./assets/hid.png)
+
+# HelloID Docs
+The official HelloID documentation can be found at: https://docs.helloid.com/
