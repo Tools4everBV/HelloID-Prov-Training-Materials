@@ -1,4 +1,5 @@
 // Example function based on a switch statement.
+// Please copy this function without the comment lines
 function formatNamingConvention()
 {
     switch(source.Naamgebruik_code)
@@ -20,10 +21,11 @@ function formatNamingConvention()
         break;
     }
 }
-formatNamingConvention()
+formatNamingConvention();
 
 
 // Alternative example function based on a if else construction.
+// Please copy this function without the comment lines
 function formatNamingConvention()
 {
     let nameConv = "B";
@@ -42,6 +44,6 @@ function formatNamingConvention()
     else{
         nameConv = "B";
     }
-    return nameConv
+    return nameConv;
 }
 formatNamingConvention();
