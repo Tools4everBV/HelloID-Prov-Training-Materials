@@ -8,7 +8,8 @@ function Get-SourceConnectorData {
     )
       
     try {
-        $dataset = Import-Csv -Path "$importSourcePath$SourceFile" -Delimiter $delimiter
+        $importSourcePath = $importSourcePath -replace '[\\/]?[\\/]$'
+        $dataset = Import-Csv -Path "$importSourcePath\$SourceFile" -Delimiter $delimiter
 
         foreach ($record in $dataset) { 
             $data.Value.add($record) 
