@@ -12,7 +12,7 @@ function Get-SourceConnectorData {
         $dataset = Import-Csv -Path "$importSourcePath\$SourceFile" -Delimiter $delimiter
 
         foreach ($record in $dataset) { 
-            $data.Value.add($record) 
+            $null = $data.Value.add($record) 
         }
     }
     catch {

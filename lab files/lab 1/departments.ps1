@@ -1,4 +1,4 @@
-$importSourcePath = "C:\Users\s.vandijk\Downloads\TEMP\DemoData\"
+$importSourcePath = "C:\Tools4ever\HelloID\Training\Connector\SourceData\"
 $delimiter = ";"
 function Get-SourceConnectorData { 
     [CmdletBinding()]
@@ -12,7 +12,7 @@ function Get-SourceConnectorData {
         $dataset = Import-Csv -Path "$importSourcePath\$SourceFile" -Delimiter $delimiter
 
         foreach ($record in $dataset) { 
-            $data.Value.add($record) 
+            $null = $data.Value.add($record) 
         }
     }
     catch {
