@@ -1,0 +1,22 @@
+[
+    {
+      "key": "Path",
+      "type": "input",
+      "defaultValue": "",
+      "templateOptions": {
+        "label": "Directory used for exporting the target data",
+        "placeholder": "Please enter the path of the local target data directory",
+        "required": true
+      }
+    },
+    {
+        "key": "FileName",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+          "label": "Filename used for exporting the target data",
+          "placeholder": "Please enter the filename for the local export file",
+          "required": true
+        }
+      }
+  ]
