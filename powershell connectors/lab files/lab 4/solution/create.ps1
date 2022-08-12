@@ -15,62 +15,16 @@ $auditLogs = New-Object Collections.Generic.List[PSCustomObject];
 $account_guid = $p.externalId
 
 #Build you generation of the DisplayName
-$firstName = $p.Name.nickName;
-$middleName = $p.Name.familyNamePrefix
-$lastName = $p.Name.familyName;
-$middleNamePartner = $p.Name.familyNamePartnerPrefix
-$lastNamePartner = $p.Name.familyNamePartner
-$nameConvention = $p.Name.Convention
+$nameformatted = $p.Name.NickName
 
-$nameFormatted = $firstName
-
-switch ($nameConvention) {
-    "B" {
-        if (($null -eq $middleName) -Or ($middleName -eq "")){
-            $nameFormatted = $nameFormatted + " " + $lastName
-        } else{
-            $nameFormatted = $nameFormatted + " " + $middleName + " " + $lastName
-        }   
-    }
-    "BP" {
-        if (($null -eq $middleName) -Or ($middleName -eq "")){
-            $nameFormatted = $nameFormatted + " " + $lastName
-        } else{
-            $nameFormatted = $nameFormatted + " " + $middleName + " " + $lastName
-        }
-        if (($null -eq $middleNamePartner) -Or ($middleNamePartner -eq "")){
-            $nameFormatted = $nameFormatted + " - " + $lastNamePartner
-        } else{
-            $nameFormatted = $nameFormatted + " - " + $middleNamePartner + " " + $lastNamePartner
-        }    
-    }
-    "P" {
-        if (($null -eq $middleNamePartner) -Or ($middleNamePartner -eq "")){
-            $nameFormatted = $nameFormatted + " " + $lastNamePartner
-        } else{
-            $nameFormatted = $nameFormatted + " " + $middleNamePartner + " " + $lastNamePartner
-        }    
-    }
-    "PB" {
-        if (($null -eq $middleNamePartner) -Or ($middleNamePartner -eq "")){
-            $nameFormatted = $nameFormatted + " " + $lastNamePartner
-        } else{
-            $nameFormatted = $nameFormatted + " " + $middleNamePartner + " " + $lastNamePartner
-        }
-        if (($null -eq $middleName) -Or ($middleName -eq "")){
-            $nameFormatted = $nameFormatted + " - " + $lastName
-        } else{
-            $nameFormatted = $nameFormatted + " - " + $middleName + " " + $lastName
-        }    
-    }
-    Default{
-        if (($null -eq $middleName) -Or ($middleName -eq "")){
-            $nameFormatted = $nameFormatted + " " + $lastName
-        } else{
-            $nameFormatted = $nameFormatted + " " + $middleName + " " + $lastName
-        } 
-    }
+switch ($p.Name.Convention) {
+    "B" { $nameformatted = "$($nameformatted) $($p.Name.FamilyNamePrefix) $($p.Name.FamilyName)" }
+    "P" { $nameformatted = "$($nameformatted) $($p.Name.FamilyNamePartnerPrefix) $($p.Name.FamilyNamePartner)" }
+    "BP" { $nameformatted = "$($nameformatted) $($p.Name.FamilyNamePrefix) $($p.Name.FamilyName) - $($p.Name.FamilyNamePartnerPrefix) $($p.Name.FamilyNamePartner)" }
+    "PB" { $nameformatted = "$($nameformatted) $($p.Name.FamilyNamePartnerPrefix) $($p.Name.FamilyNamePartner) - $($p.Name.FamilyNamePrefix) $($p.Name.FamilyName)" }
+    Default { $nameformatted = "$($nameformatted) $($p.Name.FamilyNamePrefix) $($p.Name.FamilyName)" }
 }
+$nameformatted = $nameformatted -replace '\s+', ' '
 
 #Change mapping here
 $account = [PSCustomObject]@{
