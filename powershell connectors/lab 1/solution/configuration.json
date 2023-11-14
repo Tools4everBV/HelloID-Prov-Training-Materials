@@ -1,0 +1,24 @@
+[
+	{
+		"key": "path",
+		"type": "input",
+		"defaultValue": "",
+		"templateOptions": {
+			"label": "Location containing the source data files",
+			"placeholder": "Please enter the path to your source directory",
+			"description": "Full directory path of the directory containing the source data files",
+			"required": true
+		}
+	},
+	{
+		"key": "delimiter",
+		"type": "input",
+		"defaultValue": "",
+		"templateOptions": {
+			"label": "Field delimiter",
+			"placeholder": "Please enter the delimiter as being used inside the files",
+			"description": "Used delimiter within the source data files",
+			"required": true
+		}
+	}
+]
