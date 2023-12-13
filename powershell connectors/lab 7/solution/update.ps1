@@ -63,4 +63,5 @@ $outputContext.AuditLogs.Add([PSCustomObject]@{
 })
 
 $outputContext.Data = $account
+write-verbose $outputContext.Data.displayname -verbose
 $outputContext.PreviousData = $previousAccount

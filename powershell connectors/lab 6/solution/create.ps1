@@ -63,7 +63,7 @@ if (!$outputContext.AccountCorrelated) {
     else
     {
         Try{
-        if (-Not($actionContext.DryRun -eq $False)) {
+        if (-Not($actionContext.DryRun -eq $True)) {
             $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
             
             $outputContext.Success = $true
