@@ -8,7 +8,7 @@ function generateDisplayName() {
     let lastNamePartner = Person.Name.FamilyNamePartner;
     let convention = Person.Name.Convention;
 
-
+    let nameFormatted = '';
     switch (convention) {
         case "B":
             "<logic>"
