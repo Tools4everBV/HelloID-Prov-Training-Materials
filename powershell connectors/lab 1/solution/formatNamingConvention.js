@@ -1,24 +1,22 @@
 // Example function based on a switch statement.
 // Please copy this function without the comment lines
-function formatNamingConvention()
-{
-    switch(source.Naamgebruik_code)
-    {
+function formatNamingConvention() {
+    switch (source.Naamgebruik_code) {
         case "0":
             return "B";
-        break;
+            break;
         case "1":
             return "PB";
-        break;
+            break;
         case "2":
             return "P";
-        break;
+            break;
         case "3":
             return "BP";
-        break;
+            break;
         default:
             return "B";
-        break;
+            break;
     }
 }
 formatNamingConvention();
@@ -26,22 +24,21 @@ formatNamingConvention();
 
 // Alternative example function based on a if else construction.
 // Please copy this function without the comment lines
-function formatNamingConvention()
-{
+function formatNamingConvention() {
     let nameConv = "B";
-    if (source.Naamgebruik_code === "0"){
+    if (source.Naamgebruik_code === "0") {
         nameConv = "B";
     }
-    else if(source.Naamgebruik_code === "1"){
+    else if (source.Naamgebruik_code === "1") {
         nameConv = "PB";
     }
-    else if(source.Naamgebruik_code === "2"){
+    else if (source.Naamgebruik_code === "2") {
         nameConv = "P";
     }
-    else if(source.Naamgebruik_code === "3"){
+    else if (source.Naamgebruik_code === "3") {
         nameConv = "BP";
     }
-    else{
+    else {
         nameConv = "B";
     }
     return nameConv;

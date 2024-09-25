@@ -6,7 +6,7 @@ function Get-SourceConnectorData {
         [parameter(Mandatory = $true)]$SourceFile,
         [parameter(Mandatory = $true)][ref]$data
     )
-      
+
     try {
         $importSourcePath = $importSourcePath -replace '[\\/]?[\\/]$'
         $dataset = Import-Csv -Path "$importSourcePath\$SourceFile" -Delimiter $delimiter

@@ -10,7 +10,7 @@ if ($actionContext.CorrelationConfiguration.Enabled) {
     $correlationField = $actionContext.CorrelationConfiguration.accountField
     $correlationValue = $actionContext.CorrelationConfiguration.accountFieldValue
 
-    if ($correlationField -eq $null){
+    if ($correlationField -eq $null) {
         Write-Warning "Correlation is enabled but not configured correctly."
     }
 
@@ -19,24 +19,24 @@ if ($actionContext.CorrelationConfiguration.Enabled) {
     if ($fileExists -eq $True) { $cache = Import-Csv $exportPath -Delimiter $delimiter } Else { $cache = $null }
 
     #Check if account reference is already in the CSV file
-    if((![string]::IsNullOrEmpty($cache)) -and ($cache | where {$_.$correlationField -eq $correlationValue})) 
-    {
-        $correlatedAccount = $cache | where {$_.$correlationField -eq $correlationValue}  
-    }}
-   
-    if ($correlatedAccount -ne $null) {
-        $outputContext.AccountReference = $correlatedAccount.ExternalId
-        $outputContext.Data.ExternalId = $correlatedAccount.ExternalId
+    if ((![string]::IsNullOrEmpty($cache)) -and ($cache | where { $_.$correlationField -eq $correlationValue })) {
+        $correlatedAccount = $cache | where { $_.$correlationField -eq $correlationValue }  
+    }
+}
 
-        $outputContext.AuditLogs.Add([PSCustomObject]@{
-            Action = "CorrelateAccount" # Optionally specify a different action for this audit log
+if ($correlatedAccount -ne $null) {
+    $outputContext.AccountReference = $correlatedAccount.ExternalId
+    $outputContext.Data.ExternalId = $correlatedAccount.ExternalId
+
+    $outputContext.AuditLogs.Add([PSCustomObject]@{
+            Action  = "CorrelateAccount" # Optionally specify a different action for this audit log
             Message = "Correlated account with username $($correlatedAccount.ADsAMAccountName) on field $($correlationField) with value $($correlationValue)"
             IsError = $false
         })
 
-        $outputContext.Success = $True
-        $outputContext.AccountCorrelated = $True
-    }
+    $outputContext.Success = $True
+    $outputContext.AccountCorrelated = $True
+}
 
 
 if (!$outputContext.AccountCorrelated) {
@@ -46,7 +46,7 @@ if (!$outputContext.AccountCorrelated) {
 
     $incompleteAccount = $false
 
-    if ($account.firstName -eq $null){
+    if ($account.firstName -eq $null) {
         $incompleteAccount = $true
         Write-Warning "Person does not have a firstname"
     }
@@ -55,32 +55,33 @@ if (!$outputContext.AccountCorrelated) {
         $outputContext.Success = $false
 
         $outputContext.AuditLogs.Add([PSCustomObject]@{
-            Action = "CreateAccount" # Optionally specify a different action for this audit log
-            Message = "Creating account failed: Person does not have a firstname"
-            IsError = $True
-        })
+                Action  = "CreateAccount" # Optionally specify a different action for this audit log
+                Message = "Creating account failed: Person does not have a firstname"
+                IsError = $True
+            })
     }
-    else
-    {
-        Try{
-        if (-Not($actionContext.DryRun -eq $True)) {
-            $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
-            
-            $outputContext.Success = $true
-            $outputContext.AuditLogs.Add([PSCustomObject]@{
-                Action = "CreateAccount" # Optionally specify a different action for this audit log
-                Message = "Export succesfully with username $($account.UserName)"
-                IsError = $false
-        })}     
+    else {
+        Try {
+            if (-Not($actionContext.DryRun -eq $True)) {
+                $account | Export-Csv $exportPath -Delimiter $Delimiter -NoTypeInformation -Append
+
+                $outputContext.Success = $true
+                $outputContext.AuditLogs.Add([PSCustomObject]@{
+                        Action  = "CreateAccount" # Optionally specify a different action for this audit log
+                        Message = "Export succesfully with username $($account.UserName)"
+                        IsError = $false
+                    })
+            }     
         } 
-        Catch{
+        Catch {
             $outputContext.Success = $false
             $outputContext.AuditLogs.Add([PSCustomObject]@{
-                Action = "CreateAccount" # Optionally specify a different action for this audit log
-                Message = "Export failed for user with username $($account.UserName)"
-                IsError = $True
-        })
-    }}
+                    Action  = "CreateAccount" # Optionally specify a different action for this audit log
+                    Message = "Export failed for user with username $($account.UserName)"
+                    IsError = $True
+                })
+        }
+    }
 
     $outputContext.Data = $account
 }
