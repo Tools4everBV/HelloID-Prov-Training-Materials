@@ -11,12 +11,12 @@ function generateDisplayName() {
     let nameFormatted = '';
     switch (convention) {
         case "B":
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleName !== 'undefined' && middleName) { nameFormatted = nameFormatted + ' ' + middleName }
             nameFormatted = nameFormatted + ' ' + lastName
             break;
         case "BP":
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleName !== 'undefined' && middleName) { nameFormatted = nameFormatted + ' ' + middleName }
             nameFormatted = nameFormatted + ' ' + lastName
             if (typeof middleNamePartner !== 'undefined' && middleNamePartner) {
@@ -27,12 +27,12 @@ function generateDisplayName() {
             }
             break;
         case "P":
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { nameFormatted = nameFormatted + ' ' + middleNamePartner }
             nameFormatted = nameFormatted + ' ' + lastNamePartner
             break;
         case "PB":
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { nameFormatted = nameFormatted + ' ' + middleNamePartner }
             nameFormatted = nameFormatted + ' ' + lastNamePartner
             if (typeof middleName !== 'undefined' && middleName) {
@@ -43,7 +43,7 @@ function generateDisplayName() {
             }
             break;
         default:
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleName !== 'undefined' && middleName) { nameFormatted = nameFormatted + ' ' + middleName }
             nameFormatted = nameFormatted + ' ' + lastName
             break;
