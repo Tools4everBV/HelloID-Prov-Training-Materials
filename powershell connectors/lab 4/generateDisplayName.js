@@ -23,7 +23,7 @@ function generateDisplayName() {
             "<logic>"
             break;
         default:
-            nameFormatted = firstName + ' ';
+            nameFormatted = firstName;
             if (typeof middleName !== 'undefined' && middleName) { nameFormatted = nameFormatted + ' ' + middleName }
             nameFormatted = nameFormatted + ' ' + lastName
             break;
