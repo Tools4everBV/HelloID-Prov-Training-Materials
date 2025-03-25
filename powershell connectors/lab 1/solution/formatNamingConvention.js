@@ -1,23 +1,25 @@
 // Example function based on a switch statement.
 // Please copy this function without the comment lines
 function formatNamingConvention() {
-    switch (source.Naamgebruik_code) {
-        case "0":
-            return "B";
+    let HrNamingConvention = source.Naamgebruik_code;
+    let HelloIdNamingConvention = '';
+
+    switch (HrNamingConvention) {
+        case '1':
+            HelloIdNamingConvention = 'PB';
             break;
-        case "1":
-            return "PB";
+        case '2':
+            HelloIdNamingConvention = 'P';
             break;
-        case "2":
-            return "P";
+        case '3':
+            HelloIdNamingConvention = 'BP';
             break;
-        case "3":
-            return "BP";
-            break;
+        case '0':
         default:
-            return "B";
+            HelloIdNamingConvention = 'B';
             break;
     }
+    return HelloIdNamingConvention;
 }
 formatNamingConvention();
 
@@ -25,22 +27,24 @@ formatNamingConvention();
 // Alternative example function based on a if else construction.
 // Please copy this function without the comment lines
 function formatNamingConvention() {
-    let nameConv = "B";
-    if (source.Naamgebruik_code === "0") {
-        nameConv = "B";
+    let HrNamingConvention = source.Naamgebruik_code;
+    let HelloIdNamingConvention = 'B';
+
+    if (HrNamingConvention === '0') {
+        HelloIdNamingConvention = 'B';
     }
-    else if (source.Naamgebruik_code === "1") {
-        nameConv = "PB";
+    else if (HrNamingConvention === '1') {
+        HelloIdNamingConvention = 'PB';
     }
-    else if (source.Naamgebruik_code === "2") {
-        nameConv = "P";
+    else if (HrNamingConvention === '2') {
+        HelloIdNamingConvention = 'P';
     }
-    else if (source.Naamgebruik_code === "3") {
-        nameConv = "BP";
+    else if (HrNamingConvention === '3') {
+        HelloIdNamingConvention = 'BP';
     }
     else {
-        nameConv = "B";
+        HelloIdNamingConvention = 'B';
     }
-    return nameConv;
+    return HelloIdNamingConvention;
 }
 formatNamingConvention();

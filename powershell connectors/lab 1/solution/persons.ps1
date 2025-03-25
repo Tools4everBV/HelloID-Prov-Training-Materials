@@ -2,8 +2,10 @@
 # HelloID-Conn-Prov-Source-Training-Persons
 #####################################################
 
-$importSourcePath = "C:\Tools4ever\HelloID\Training\Connector\SourceData\"
-$delimiter = ";"
+$config = $configuration | ConvertFrom-Json
+
+$importSourcePath = $config.path
+$delimiter = $config.delimiter
 
 function Get-SourceConnectorData { 
     [CmdletBinding()]
@@ -72,7 +74,7 @@ $persons | ForEach-Object {
 }
 
 # Make sure persons are unique
-$persons = $persons | Sort-Object Medewerker -Unique
+$personsList = $persons | Sort-Object Medewerker -Unique
 
 # Export and return the json
 foreach ($person in $personsList) {
