@@ -77,6 +77,6 @@ $persons | ForEach-Object {
 $personList = $persons | Sort-Object ExternalId -Unique
 
 # Export and return the json
-foreach ($person in $personsList) {
+foreach ($person in $personList) {
     Write-Output $person | ConvertTo-Json -Depth 10
 }
