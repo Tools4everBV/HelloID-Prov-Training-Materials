@@ -1,3 +1,0 @@
-Department;DisplayName;EndDate;Id;FamilyName;NickName;StartDate;Title;UserName;FamilyNamePrefix;PartnerNamePrefix;PartnerName;NameConventionCode
-Administration;Johnny Doe;2019-12-31;123456;Doe;Johnny;2019-01-01;System Admin;j.doe;;van;Jane;B
-Administration;Jane van Doe;2019-12-31;123457;Doe;Jane;2019-01-01;System Admin;j.vandoe;van;Doe;Johnny;B
