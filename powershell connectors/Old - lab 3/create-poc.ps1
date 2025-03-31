@@ -129,7 +129,8 @@ function Remove-CsvUser {
 }
 
 $splatGetCsvUserParams = @{
-    Path             = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
+    Path             = "C:\Users\R.Jongbloed\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"   
+    #Path             = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
     Delimiter        = ";"
     CorrelationField = "Id"
     CorrelationValue = "123456"
@@ -138,21 +139,24 @@ $user = Get-CsvUser @splatGetCsvUserParams
 $user | Format-Table
 
 $splatNewCsvUserParams = @{
-    Path      = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
+    Path             = "C:\Users\R.Jongbloed\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"   
+    #Path             = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
     Delimiter = ";"
     User      = $user  # of gebruik $actionContext.data?
 }
 $null = New-CsvUser @splatNewCsvUserParams
 
 $splatSetCsvUserParams = @{
-    Path      = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
+    Path             = "C:\Users\R.Jongbloed\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"   
+    #Path             = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
     Delimiter = ";"
     User      = $user  # of gebruik $actionContext.data?
 }
 $null = Set-CsvUser @splatSetCsvUserParams
 
 $splatSetCsvUserParams = @{
-    Path      = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
+    Path             = "C:\Users\R.Jongbloed\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"   
+    #Path             = "C:\Users\ricad\OneDrive - Tools4ever B.V\Documenten\Tools4everGit\HelloID-Prov-Training-Materials\powershell connectors\lab 3\storage.csv"
     Delimiter = ";"
     User      = $user  # of gebruik $actionContext.data?
 }
