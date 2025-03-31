@@ -64,15 +64,15 @@ $persons | Add-Member -MemberType NoteProperty -Name "DisplayName" -Value $null 
 
 $persons | ForEach-Object {
     $_.ExternalId = $_.Medewerker
-    $_.DisplayName = $_.Medewerker
-    $contracts = $employments[$_.Medewerker]
+    $_.DisplayName = "$($_.NickName) $($_.LastName) ($($_.ExternalId))" 
+    $contracts = $employments[$_.ExternalId]
     if ($null -ne $contracts) {
         $_.Contracts = $contracts
     }
 }
 
 # Make sure persons are unique
-$persons = $persons | Sort-Object Medewerker -Unique
+$personList = $persons | Sort-Object ExternalId -Unique
 
 # Export and return the json
 foreach ($person in $personsList) {
