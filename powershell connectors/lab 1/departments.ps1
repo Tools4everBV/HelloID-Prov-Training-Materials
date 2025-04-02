@@ -14,6 +14,7 @@ function Get-SourceConnectorData {
 
     try {
         $importSourcePath = $importSourcePath -replace '[\\/]?[\\/]$'
+
         $dataset = Import-Csv -Path "$importSourcePath\$SourceFile" -Delimiter $delimiter
 
         foreach ($record in $dataset) { 
@@ -22,13 +23,18 @@ function Get-SourceConnectorData {
     }
     catch {
         $data.Value = $null
-        Write-Verbose $_.Exception
+        Throw $_.Exception
     }
 }
+try {
+    $organizationalUnits = New-Object System.Collections.ArrayList
+    Get-SourceConnectorData -SourceFile "T4E_HelloID_OrganizationalUnits.csv" ([ref]$organizationalUnits)
 
-$organizationalUnits = New-Object System.Collections.ArrayList
-Get-SourceConnectorData -SourceFile "T4E_HelloID_OrganizationalUnits.csv" ([ref]$organizationalUnits)
-
-foreach ($organizationalUnit in $organizationalUnits) {
-    Write-Output $organizationalUnit | ConvertTo-Json -Depth 3
+    foreach ($organizationalUnit in $organizationalUnits) {
+        Write-Output $organizationalUnit | ConvertTo-Json -Depth 3
+    }
+} catch {
+    # error handler
+    $ex = $PSItem
+    Write-Warning "Error at Line '$($ex.InvocationInfo.ScriptLineNumber)': $($ex.InvocationInfo.Line). Error: $($ex.Exception.Message)"
 }

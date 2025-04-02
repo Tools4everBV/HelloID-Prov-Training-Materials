@@ -1,11 +1,27 @@
 {
 	"personMappings": [
 		{
+			"name": "Contact.Business.Email",
+			"mode": "field",
+			"value": "Email_werk",
+			"validation": {
+				"required": false
+			}
+		},
+		{
 			"name": "ExternalId",
 			"mode": "field",
-			"value": "Medewerker",
+			"value": "ExternalId",
 			"validation": {
 				"required": true
+			}
+		},
+		{
+			"name": "Name.Convention",
+			"mode": "complex",
+			"value": "function formatNamingConvention() {\r\n    let HrNamingConvention = source.Naamgebruik_code;\r\n    let HelloIdNamingConvention = '';\r\n\r\n    switch (HrNamingConvention) {\r\n        case '1':\r\n            HelloIdNamingConvention = 'PB';\r\n            break;\r\n        case '2':\r\n            HelloIdNamingConvention = 'P';\r\n            break;\r\n        case '3':\r\n            HelloIdNamingConvention = 'BP';\r\n            break;\r\n        case '0':\r\n        default:\r\n            HelloIdNamingConvention = 'B';\r\n            break;\r\n    }\r\n    return HelloIdNamingConvention;\r\n}\r\nformatNamingConvention();",
+			"validation": {
+				"required": false
 			}
 		},
 		{
@@ -41,6 +57,14 @@
 			}
 		},
 		{
+			"name": "Name.GivenName",
+			"mode": "field",
+			"value": "FirstName",
+			"validation": {
+				"required": false
+			}
+		},
+		{
 			"name": "Name.Initials",
 			"mode": "field",
 			"value": "Initials",
@@ -57,9 +81,9 @@
 			}
 		},
 		{
-			"name": "Name.Convention",
-			"mode": "complex",
-			"value": "function formatNamingConvention() {\r\n    let HrNamingConvention = source.Naamgebruik_code;\r\n    let HelloIdNamingConvention = '';\r\n\r\n    switch (HrNamingConvention) {\r\n        case '1':\r\n            HelloIdNamingConvention = 'PB';\r\n            break;\r\n        case '2':\r\n            HelloIdNamingConvention = 'P';\r\n            break;\r\n        case '3':\r\n            HelloIdNamingConvention = 'BP';\r\n            break;\r\n        case '0':\r\n        default:\r\n            HelloIdNamingConvention = 'B';\r\n            break;\r\n    }\r\n    return HelloIdNamingConvention;\r\n}\r\nformatNamingConvention();",
+			"name": "UserName",
+			"mode": "field",
+			"value": "UserName",
 			"validation": {
 				"required": false
 			}
@@ -67,17 +91,9 @@
 	],
 	"contractMappings": [
 		{
-			"name": "Department.DisplayName",
-			"mode": "field",
-			"value": "OrgUnitDesc",
-			"validation": {
-				"required": false
-			}
-		},
-		{
 			"name": "Department.ExternalId",
 			"mode": "field",
-			"value": "Organisatorische_eenheid",
+			"value": "OrganisatorischeEenheid",
 			"validation": {
 				"required": false
 			}
@@ -85,7 +101,23 @@
 		{
 			"name": "Details.Fte",
 			"mode": "field",
-			"value": "Aantal_FTE",
+			"value": "AantalFTE",
+			"validation": {
+				"required": false
+			}
+		},
+		{
+			"name": "Details.Sequence",
+			"mode": "field",
+			"value": "VolgnummerContract",
+			"validation": {
+				"required": false
+			}
+		},
+		{
+			"name": "Employer.ExternalId",
+			"mode": "field",
+			"value": "Werkgever",
 			"validation": {
 				"required": false
 			}
@@ -93,15 +125,15 @@
 		{
 			"name": "EndDate",
 			"mode": "field",
-			"value": "Einddatum_contract",
+			"value": "EinddatumContract",
 			"validation": {
 				"required": false
 			}
 		},
 		{
 			"name": "ExternalId",
-			"mode": "field",
-			"value": "Medewerker",
+			"mode": "complex",
+			"value": "function getContractExternalId () {\r\n    let contractExternalId = ''\r\n    contractExternalId = sourceContract.EmployeeNumber + '-' + sourceContract.VolgnummerContract;\r\n    return contractExternalId;\r\n}\r\ngetContractExternalId();",
 			"validation": {
 				"required": false
 			}
@@ -109,7 +141,7 @@
 		{
 			"name": "StartDate",
 			"mode": "field",
-			"value": "Begindatum_contract",
+			"value": "BegindatumContract",
 			"validation": {
 				"required": false
 			}
