@@ -54,14 +54,11 @@ function Get-CsvUser {
         $Delimiter,
 
         [string]
-        $CorrelationField,
-
-        [string]
-        $correlationValue
+        $Id
     )
-    
+
     $data = Import-Csv -Path $Path -Delimiter $delimiter
-    $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+    $user = $data | Where-Object { $_.Id -eq $Id }
     Write-Output $user
 }
 
@@ -73,12 +70,12 @@ function Remove-CsvUser {
         [string]
         $Delimiter,
 
-        [PSCustomObject]
-        $User
+        [string]
+        $Id
     )
     $csv = Import-Csv -Path $Path -Delimiter $Delimiter
-    
-    $data = $csv | Where-Object { $_.Id -ne $User.Id }
+
+    $data = $csv | Where-Object { $_.Id -ne $Id } | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
 }
 #endregion
@@ -91,19 +88,17 @@ try {
     }
 
     Write-Information 'Verifying if a Training account exists'
-    
     # Start < Write Get logic here >
     $splatGetCsvUserParams = @{
-        Path             = $actionContext.Configuration.csvPath
-        Delimiter        = $actionContext.Configuration.csvDelimiter
-        CorrelationField = $actionContext.CorrelationConfiguration.AccountField # Hiervan notie maken in oefening 
-        CorrelationValue = $actionContext.References.Account
+        Path        = $actionContext.Configuration.csvPath
+        Delimiter   = $actionContext.Configuration.csvDelimiter
+        Id          = $actionContext.References.Account
     }
     $correlatedAccount = Get-CsvUser @splatGetCsvUserParams
 
     # Another way to call the function:
-    #$correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -CorrelationField $actionContext.CorrelationConfiguration.AccountField -correlationValue $actionContext.References.Account
-    
+    # $correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -Id = $actionContext.References.Account
+
     # End < Write Get logic here >
 
     if ($null -ne $correlatedAccount) {
@@ -117,17 +112,16 @@ try {
         'DeleteAccount' {
             if (-not($actionContext.DryRun -eq $true)) {
                 Write-Information "Deleting Training account with accountReference: [$($actionContext.References.Account)]"
-                
                 # < Write Delete logic here >
                 $splatRemoveCsvUserParams = @{
                     Path        = $actionContext.Configuration.csvPath
                     Delimiter   = $actionContext.Configuration.csvDelimiter
-                    User        = $correlatedAccount
+                    Id          = $actionContext.References.Account
                 }
                 $null = Remove-CsvUser @splatRemoveCsvUserParams
 
                 # Another way to call the function:
-                #$null = Remove-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -User $correlatedAccount
+                #$null = Remove-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -Id $actionContext.References.Account
 
                 # End < Write Delete logic here >
 

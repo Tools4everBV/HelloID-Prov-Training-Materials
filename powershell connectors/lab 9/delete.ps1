@@ -54,14 +54,11 @@ function Get-CsvUser {
         $Delimiter,
 
         [string]
-        $CorrelationField,
-
-        [string]
-        $correlationValue
+        $Id
     )
-    
+
     $data = Import-Csv -Path $Path -Delimiter $delimiter
-    $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+    $user = $data | Where-Object { $_.Id -eq $Id }
     Write-Output $user
 }
 
@@ -73,12 +70,12 @@ function Remove-CsvUser {
         [string]
         $Delimiter,
 
-        [PSCustomObject]
-        $User
+        [string]
+        $Id
     )
     $csv = Import-Csv -Path $Path -Delimiter $Delimiter
-    
-    $data = $csv | Where-Object { $_.Id -ne $User.Id }
+
+    $data = $csv | Where-Object { $_.Id -ne $Id } | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
 }
 #endregion
@@ -91,15 +88,8 @@ try {
     }
 
     Write-Information 'Verifying if a Training account exists'
-    
-
     # Start < Write Get logic here >
-    # Replace the placeholder with actual code:
-    
-    # Retrieve user details using an (API) call and store the result in $correlatedAccount
-    # Make sure you use lookup the user with configureed account field and the account reference 
-    # $correlatedAccount = <insert call here>
-    
+
     # End < Write Get logic here >
 
     if ($null -ne $correlatedAccount) {
@@ -113,12 +103,7 @@ try {
         'DeleteAccount' {
             if (-not($actionContext.DryRun -eq $true)) {
                 Write-Information "Deleting Training account with accountReference: [$($actionContext.References.Account)]"
-                
                 # < Write Delete logic here >
-                # Replace the placeholder with actual code:
-
-                # Update user using an (API) call and store the updated account details in $updatedAccount
-                # $null = <insert call here>
 
                 # End < Write Delete logic here >
 

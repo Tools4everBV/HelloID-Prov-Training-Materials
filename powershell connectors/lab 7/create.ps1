@@ -59,10 +59,14 @@ function Get-CsvUser {
         [string]
         $correlationValue
     )
-    
-    $data = Import-Csv -Path $Path -Delimiter $delimiter
-    $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
-    Write-Output $user
+
+    if (Test-Path $Path) {
+        $data = Import-Csv -Path $Path -Delimiter $delimiter
+        $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+        Write-Output $user
+    } else {
+        $user = $null
+    }
 }
 
 function New-CsvUser {
@@ -76,16 +80,18 @@ function New-CsvUser {
         [PSCustomObject]
         $User
     )
-    $csv = Import-Csv -Path $Path -Delimiter $Delimiter
+    if (Test-Path $Path) {
+        $csv = Import-Csv -Path $Path -Delimiter $Delimiter
 
-    # Extra check as the function might be used as not intended
-    if ($csv | Where-Object { $_.Id -eq $User.Id }) {
-        Throw "User with Id $($User.Id) already exists in the CSV file, please check your correlation configuration"
+        # Extra check as the function might be used as not intended
+        if ($User.Id -In $csv.Id)  {
+            Throw "User with Id $($User.Id) already exists in the CSV file, please check your correlation configuration"
+        }
     }
 
-    $data = [array]$csv + $User
+    $data = [array]$csv + $User | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
-    
+
     return $User
 }
 #endregion
@@ -107,13 +113,9 @@ try {
         }
 
         # Determine if a user needs to be [created] or [correlated]
-        
+
         # Start < Write Get logic here >
-        # Replace the placeholder with actual code:
-        
-        # Retrieve user details using an (API) call and store the result in $correlatedAccount
-        # $correlatedAccount = <insert call here>
-        
+
         # End < Write Get logic here >
     }
 
@@ -129,17 +131,13 @@ try {
 
             # Make sure to test with special characters and if needed; add utf8 encoding.
             if (-not($actionContext.DryRun -eq $true)) {
-                
+
                 Write-Information 'Creating and correlating Training account'
-            
+
                 # < Write Create logic here >
-                # Replace the placeholder with actual code:
-            
-                # Create user using an (API) call and store the created account details in $createdAccount
-                # $createdAccount = <insert call here>
-        
+
                 # End < Write Create logic here >
-                
+
                 $outputContext.Data = $createdAccount
                 $outputContext.AccountReference = $createdAccount.Id
             } else {

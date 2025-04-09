@@ -13,7 +13,7 @@ function Resolve-TrainingError {
         [Parameter(Mandatory)]
         [object]
         $ErrorObject
-    )ö
+    )
     process {
         $httpErrorObj = [PSCustomObject]@{
             ScriptLineNumber = $ErrorObject.InvocationInfo.ScriptLineNumber
@@ -59,10 +59,14 @@ function Get-CsvUser {
         [string]
         $correlationValue
     )
-    
-    $data = Import-Csv -Path $Path -Delimiter $delimiter
-    $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
-    Write-Output $user
+
+    if (Test-Path $Path) {
+        $data = Import-Csv -Path $Path -Delimiter $delimiter
+        $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+        Write-Output $user
+    } else {
+        $user = $null
+    }
 }
 
 function New-CsvUser {
@@ -76,16 +80,18 @@ function New-CsvUser {
         [PSCustomObject]
         $User
     )
-    $csv = Import-Csv -Path $Path -Delimiter $Delimiter
+    if (Test-Path $Path) {
+        $csv = Import-Csv -Path $Path -Delimiter $Delimiter
 
-    # Extra check as the function might be used as not intended
-    if ($csv | Where-Object { $_.Id -eq $User.Id }) {
-        Throw "User with Id $($User.Id) already exists in the CSV file, please check your correlation configuration"
+        # Extra check as the function might be used as not intended
+        if ($User.Id -In $csv.Id)  {
+            Throw "User with Id $($User.Id) already exists in the CSV file, please check your correlation configuration"
+        }
     }
 
-    $data = [array]$csv + $User
+    $data = [array]$csv + $User | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
-    
+
     return $User
 }
 #endregion
@@ -118,10 +124,10 @@ try {
             CorrelationValue = $correlationValue
         }
         $correlatedAccount = Get-CsvUser @splatGetCsvUserParams
-        
+
         # Another way to call the function:
         #$correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -CorrelationField $correlationField -CorrelationValue $correlationValue
-        
+
         # End < Write Get logic here >
     }
 
@@ -147,10 +153,10 @@ try {
                     User        = $actionContext.Data
                 }
                 $createdAccount = New-CsvUser @splatNewCsvUserParams
-                
+
                 # Another way to call the function:
-                #$createdAccount = New-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -User $actionContext.Data
-                
+                # $createdAccount = New-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -User $actionContext.Data
+
                 # End < Write Create logic here >
 
                 $outputContext.Data = $createdAccount

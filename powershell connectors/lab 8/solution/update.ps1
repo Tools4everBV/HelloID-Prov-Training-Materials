@@ -23,7 +23,8 @@ function Resolve-TrainingError {
         }
         if (-not [string]::IsNullOrEmpty($ErrorObject.ErrorDetails.Message)) {
             $httpErrorObj.ErrorDetails = $ErrorObject.ErrorDetails.Message
-        } elseif ($ErrorObject.Exception.GetType().FullName -eq 'System.Net.WebException') {
+        }
+        elseif ($ErrorObject.Exception.GetType().FullName -eq 'System.Net.WebException') {
             if ($null -ne $ErrorObject.Exception.Response) {
                 $streamReaderResponse = [System.IO.StreamReader]::new($ErrorObject.Exception.Response.GetResponseStream()).ReadToEnd()
                 if (-not [string]::IsNullOrEmpty($streamReaderResponse)) {
@@ -36,7 +37,8 @@ function Resolve-TrainingError {
             # Make sure to inspect the error result object and add only the error message as a FriendlyMessage.
             # $httpErrorObj.FriendlyMessage = $errorDetailsObject.message
             $httpErrorObj.FriendlyMessage = $httpErrorObj.ErrorDetails # Temporarily assignment
-        } catch {
+        }
+        catch {
             $httpErrorObj.FriendlyMessage = $httpErrorObj.ErrorDetails
         }
         Write-Output $httpErrorObj
@@ -54,14 +56,11 @@ function Get-CsvUser {
         $Delimiter,
 
         [string]
-        $CorrelationField,
-
-        [string]
-        $correlationValue
+        $Id
     )
-    
+
     $data = Import-Csv -Path $Path -Delimiter $delimiter
-    $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+    $user = $data | Where-Object { $_.Id -eq $Id }
     Write-Output $user
 }
 
@@ -74,16 +73,35 @@ function Set-CsvUser {
         $Delimiter,
 
         [PSCustomObject]
-        $User
+        $User,
+
+        [string]
+        $Id
     )
     $csv = Import-Csv -Path $Path -Delimiter $Delimiter
 
-    # Check if user exists, the wrong function might be used
-    if ($csv | Where-Object { $_.Id -ne $User.Id }) {
-        Throw "Can't update user with Id $($User.Id) as it doesn't exists in the CSV file"
+    # Check if user exists
+    if (($Id -Notin $csv.Id) ) {
+        Throw "Can't update user with Id [$Id] as it doesn't exists in the CSV file"
     }
-    $data = $csv | Where-Object { $_.Id -ne $User.Id }
-    $data = [array]$data + $User
+
+    # Map fields in $User over fields in the csv so no fields are skipped
+    # Get all properties in user and csv
+
+    $propertyNamesUser = $User.PsObject.Properties.Name # Merge into foreach loop?
+    $UserCsv = $csv | Where-Object { $_.Id -eq $Id }
+    $propertyNamesCsv = $UserCsv.PsObject.Properties.Name # Merge into foreach loop?
+
+    foreach ($propertyNameCsv in $propertyNamesCsv) {
+        if ($propertyNameCsv -NotIn $propertyNamesUser) {
+            Write-Information "Adding property [$propertyNameCsv] to User [$Id] as it doesn't exist in the current field mapping"
+            $User | Add-Member -MemberType NoteProperty -Name $propertyNameCsv -Value $UserCsv.$propertyNameCsv -Force
+        }
+    }
+
+    $data = $csv | Where-Object { $_.Id -ne $Id }
+    $data = [array]$data + $User | Sort-Object Id
+
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
 }
 #endregion
@@ -98,16 +116,15 @@ try {
 
     # Start < Write Get logic here >
     $splatGetCsvUserParams = @{
-        Path             = $actionContext.Configuration.csvPath
-        Delimiter        = $actionContext.Configuration.csvDelimiter
-        CorrelationField = $actionContext.CorrelationConfiguration.AccountField # Hiervan notie maken in oefening 
-        CorrelationValue = $actionContext.References.Account
+        Path      = $actionContext.Configuration.csvPath
+        Delimiter = $actionContext.Configuration.csvDelimiter
+        Id        = $actionContext.References.Account
     }
     $correlatedAccount = Get-CsvUser @splatGetCsvUserParams
 
     # Another way to call the function:
-    #$correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -CorrelationField $actionContext.CorrelationConfiguration.AccountField -CorrelationValue $actionContext.References.Account
-    
+    # $correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -Id = $actionContext.References.Account
+
     # End < Write Get logic here >
 
     $outputContext.PreviousData = $correlatedAccount
@@ -121,10 +138,12 @@ try {
         $propertiesChanged = Compare-Object @splatCompareProperties -PassThru | Where-Object { $_.SideIndicator -eq '=>' }
         if ($propertiesChanged) {
             $action = 'UpdateAccount'
-        } else {
+        }
+        else {
             $action = 'NoChanges'
         }
-    } else {
+    }
+    else {
         $action = 'NotFound'
     }
 
@@ -136,21 +155,23 @@ try {
             # Make sure to test with special characters and if needed; add utf8 encoding.
             if (-not($actionContext.DryRun -eq $true)) {
                 Write-Information "Updating Training account with accountReference: [$($actionContext.References.Account)]"
-                
+
                 # < Write Update logic here >
                 $splatSetCsvUserParams = @{
-                    Path        = $actionContext.Configuration.csvPath
-                    Delimiter   = $actionContext.Configuration.csvDelimiter
-                    User        = $actionContext.Data
+                    Path      = $actionContext.Configuration.csvPath
+                    Delimiter = $actionContext.Configuration.csvDelimiter
+                    User      = $actionContext.Data
+                    Id        = $actionContext.References.Account
                 }
                 $null = Set-CsvUser @splatSetCsvUserParams
-                
+
                 # Another way to call the function:
-                #$null = Set-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -User $actionContext.Data
+                # $null = Set-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -User $actionContext.Data -Id $actionContext.References.Account
 
                 # End < Write Update logic here >
 
-            } else {
+            }
+            else {
                 Write-Information "[DryRun] Update Training account with accountReference: [$($actionContext.References.Account)], will be executed during enforcement"
             }
 
@@ -183,15 +204,17 @@ try {
             break
         }
     }
-} catch {
-    $outputContext.Success  = $false
+}
+catch {
+    $outputContext.Success = $false
     $ex = $PSItem
     if ($($ex.Exception.GetType().FullName -eq 'Microsoft.PowerShell.Commands.HttpResponseException') -or
         $($ex.Exception.GetType().FullName -eq 'System.Net.WebException')) {
         $errorObj = Resolve-TrainingError -ErrorObject $ex
         $auditMessage = "Could not update Training account. Error: $($errorObj.FriendlyMessage)"
         Write-Warning "Error at Line '$($errorObj.ScriptLineNumber)': $($errorObj.Line). Error: $($errorObj.ErrorDetails)"
-    } else {
+    }
+    else {
         $auditMessage = "Could not update Training account. Error: $($ex.Exception.Message)"
         Write-Warning "Error at Line '$($ex.InvocationInfo.ScriptLineNumber)': $($ex.InvocationInfo.Line). Error: $($ex.Exception.Message)"
     }
