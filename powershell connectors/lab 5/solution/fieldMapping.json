@@ -70,40 +70,6 @@
       ]
     },
     {
-      "Name": "StartDate",
-      "Description": "",
-      "Type": "Text",
-      "MappingActions": [
-        {
-          "MapForActions": [
-            "Create",
-            "Update"
-          ],
-          "MappingMode": "Field",
-          "Value": "\"Person.PrimaryContract.StartDate\"",
-          "UsedInNotifications": false,
-          "StoreInAccountData": false
-        }
-      ]
-    },
-    {
-      "Name": "EndDate",
-      "Description": "",
-      "Type": "Text",
-      "MappingActions": [
-        {
-          "MapForActions": [
-            "Create",
-            "Update"
-          ],
-          "MappingMode": "Field",
-          "Value": "\"Person.PrimaryContract.EndDate\"",
-          "UsedInNotifications": false,
-          "StoreInAccountData": false
-        }
-      ]
-    },
-    {
       "Name": "FamilyNamePrefix",
       "Description": "",
       "Type": "Text",
@@ -217,6 +183,40 @@
           "Value": "\"function getSamAccountName() {\\r\\n    let SamAccountName = '';\\r\\n\\r\\n    // Voeg hier de logica toe om de bronwaarde correct te vertalen naar de HelloID waarde\\r\\n    if (typeof Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName !== 'undefined' && Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName) {\\r\\n        SamAccountName = Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName;\\r\\n    }\\r\\n    return SamAccountName;\\r\\n}\\r\\ngetSamAccountName();\"",
           "UsedInNotifications": true,
           "StoreInAccountData": true
+        }
+      ]
+    },
+    {
+      "Name": "EndDate",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create",
+            "Update"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"// By default an enddate of an indefinate contract is null. This function returns an empty string instead. \\r\\nfunction getEndDate() {\\r\\n    let endDate = '';\\r\\n    if (typeof Person.PrimaryContract.EndDate !== 'undefined' && Person.PrimaryContract.EndDate) {\\r\\n        endDate = Person.PrimaryContract.endDate;\\r\\n    }\\r\\n    return endDate;\\r\\n}\\r\\ngetEndDate();\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "StartDate",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create",
+            "Update"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"// Based on https://github.com/Tools4everBV/HelloID-Lib-Prov-HelperFunctions/blob/main/Javascript/Source/getFormattedStartDate.js\\r\\nfunction convertDate(date) {\\r\\n    const day = String(date.getDate()).padStart(2, '0');\\r\\n    const month = String(date.getMonth() + 1).padStart(2, '0');\\r\\n    const year = date.getFullYear();\\r\\n    return `${day}-${month}-${year}`;\\r\\n}\\r\\n\\r\\nfunction getFormattedStartDate() {\\r\\n    let startDate = Person.PrimaryContract.StartDate;\\r\\n    if (!startDate) return \\\"\\\";\\r\\n\\r\\n    const date = new Date(startDate);\\r\\n    return isNaN(date) ? \\\"\\\" : convertDate(date);\\r\\n}\\r\\n\\r\\ngetFormattedStartDate();\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
         }
       ]
     }
