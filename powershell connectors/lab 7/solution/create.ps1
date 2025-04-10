@@ -146,7 +146,7 @@ try {
 
                 Write-Information 'Creating and correlating Training account'
 
-                # < Write Create logic here >
+                # Start < Write Create logic here >
                 $splatNewCsvUserParams = @{
                     Path        = $actionContext.Configuration.csvPath
                     Delimiter   = $actionContext.Configuration.csvDelimiter

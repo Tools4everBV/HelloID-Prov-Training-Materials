@@ -156,7 +156,7 @@ try {
             if (-not($actionContext.DryRun -eq $true)) {
                 Write-Information "Updating Training account with accountReference: [$($actionContext.References.Account)]"
 
-                # < Write Update logic here >
+                # Start < Write Update logic here >
                 $splatSetCsvUserParams = @{
                     Path      = $actionContext.Configuration.csvPath
                     Delimiter = $actionContext.Configuration.csvDelimiter

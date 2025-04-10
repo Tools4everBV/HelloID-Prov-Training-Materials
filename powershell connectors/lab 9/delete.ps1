@@ -88,6 +88,7 @@ try {
     }
 
     Write-Information 'Verifying if a Training account exists'
+
     # Start < Write Get logic here >
 
     # End < Write Get logic here >
@@ -103,7 +104,8 @@ try {
         'DeleteAccount' {
             if (-not($actionContext.DryRun -eq $true)) {
                 Write-Information "Deleting Training account with accountReference: [$($actionContext.References.Account)]"
-                # < Write Delete logic here >
+
+                # Start < Write Delete logic here >
 
                 # End < Write Delete logic here >
 

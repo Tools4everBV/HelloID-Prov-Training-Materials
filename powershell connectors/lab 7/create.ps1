@@ -134,7 +134,7 @@ try {
 
                 Write-Information 'Creating and correlating Training account'
 
-                # < Write Create logic here >
+                # Start < Write Create logic here >
 
                 # End < Write Create logic here >
 
