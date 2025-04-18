@@ -49,7 +49,7 @@ In deze stap zet je op een rij welke velden je nodig hebt, waar ze vandaan komen
 | Department           | PrimaryContract.Department.DisplayName                    | ✅      | ❌                     | ❌           |
 | DisplayName          | DisplayName                                               | ✅      | ✅                     | ✅           |
 | EndDate              | PrimaryContract.EndDate                                   | ✅      | ❌                     | ❌           |
-| ExternalId (Id)      | ExternalID                                                | ❌      | ❌                     | ❌           |
+| Id                   | ExternalID                                                | ❌      | ❌                     | ❌           |
 | FamilyName           | Name.FamilyName                                           | ✅      | ❌                     | ❌           |
 | NickName             | Name.NickName                                             | ✅      | ❌                     | ❌           |
 | StartDate            | PrimaryContract.StartDate                                 | ✅      | ❌                     | ❌           |
