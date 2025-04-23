@@ -1,46 +1,79 @@
+
 # Lab 6 – Invoerformulier maken voor configuratie
 
-## Wat ga je doen?
+## 🧭 Wat ga je doen?
 
-In dit lab maak je een **invoerformulier (configuration form)** aan voor je PowerShell-doelsysteem. Hiermee kun je eenvoudig instellingen meegeven aan je scripts, zoals het pad naar het CSV-bestand of het scheidingsteken.
+In dit lab maak je een **configuratieformulier** aan in HelloID. Daarmee kun je instellingen zoals het pad naar het CSV-bestand en het scheidingsteken invullen via de interface, zonder dat je die hardcoded in je PowerShell-script hoeft te zetten.
 
-💡 *Waarom dit handig is?*  
-Met een configuratieformulier heb je alle parameters op één plek.  
-- Scripts gebruiken automatisch de ingevulde waarden.  
-- Je hoeft de scripts niet aan te passen bij wijzigingen.  
-- Beheerders zonder scriptkennis kunnen de instellingen aanpassen.  
-- Je voorkomt dat gevoelige info hardcoded in je script of GitHub-backup terechtkomt.  
-- Je kunt dezelfde scripts hergebruiken in meerdere omgevingen.
-
----
-
-## 🧰 Stap 1 – Inputformulier aanmaken
-
-1. Ga naar je PowerShell-doelsysteem en open het tabblad **Input form**.
-2. Klik op **+ Add field** en voeg de benodigde velden toe:
-   - `csvPath` (Type: text)
-   - `csvDelimiter` (Type: text)
-
-   👉 Deze twee heb je nodig om het pad en het scheidingsteken door te geven aan je scripts.
-
-3. Klik op **Save**.
+Waarom dit handig is:  
+Met een configuratieformulier houd je alle instellingen overzichtelijk bij elkaar, op één centrale plek. Dat heeft een paar voordelen:
+- Als er iets verandert, hoef je niet je script aan te passen, je past gewoon de waarden in het formulier aan.
+- Andere beheerders kunnen dit ook aanpassen via de HelloID-interface, zonder dat ze iets in de PowerShell-code hoeven te wijzigen.
+- Je voorkomt dat gevoelige of klantspecifieke gegevens hardcoded in het script staan.
+- Je script blijft flexibel en makkelijk herbruikbaar in andere omgevingen.
 
 ---
 
-## 🧪 Stap 2 – Configuratiewaarden invullen
+## 🛠️ Stap 1 – Formulier aanmaken
 
-1. Na het opslaan van het formulier verschijnt er een nieuw tabblad: **Configuration**.
-2. Vul hier de juiste waarden in:
-   - `csvPath`: `C:\HelloID\Training\accounts.csv`
+We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad naar het CSV-bestand en het scheidingsteken kunt instellen. Zo houd je die instellingen netjes uit je script.
+
+### Wat moet je doen:
+
+1. Ga in HelloID naar je PowerShell-doelsysteem.
+2. Open het tabblad **Account**.
+3. Scroll naar beneden tot je de sectie **Custom connector configuration** ziet.
+4. Klik op **Edit form JSON** om de formuliereditor te openen.
+5. Voeg twee tekstvelden toe:
+   - Eén met de key `csvPath`  
+     Labelvoorbeeld: *Pad naar het accountsbestand*  
+     Voorbeeldwaarde: `C:\HelloID\Training\Target\accounts.csv`
+   - Eén met de key `csvDelimiter`  
+     Labelvoorbeeld: *Scheidingsteken voor CSV*  
+     Voorbeeldwaarde: `;`
+6. Geef de velden duidelijke namen zodat collega’s snappen wat ze moeten invullen.
+7. Klik op **Apply** om het formulier op te slaan.
+
+Na het opslaan verschijnt er een extra tabblad genaamd **Configuration**. Daar vul je de waarden in die het script straks nodig heeft.
+
+8. Ga naar het tabblad **Configuration** en vul de twee velden als volgt in:
+   - `csvPath`: `C:\HelloID\Training\Target\accounts.csv`
    - `csvDelimiter`: `;`
-3. Klik op **Save**.
+9. Klik ook hier rechtsboven op **Apply** om de waarden op te slaan.
+
+> Tip: Als je meer wilt weten over welke type invoervelden je kunt gebruiken of wat er nog meer mogelijk is, bekijk dan de documentatie:  
+> [Configure an input form – HelloID Docs](https://docs.helloid.com/en/provisioning/input-forms.html)
 
 ---
 
-### 🔎 Hoe gebruik je de configuratiewaarden in je script?
+## ℹ️ Hoe werkt dit straks in je script?
 
-De waarden die je invult in het formulier zijn beschikbaar in je script via:
+Je gaat de waarden uit het configuratieformulier pas gebruiken vanaf Lab 7, wanneer je het create-script gaat schrijven. Maar het is goed om nu alvast te begrijpen hoe je in HelloID die gegevens straks beschikbaar maakt in je scripts.
 
-```powershell
+Alles wat je invult in het formulier (zoals het pad naar het bestand en het scheidingsteken), wordt door HelloID automatisch doorgegeven via:
+
+```
+powershell
 $actionContext.Configuration.csvPath
 $actionContext.Configuration.csvDelimiter
+```
+
+Bijvoorbeeld:
+
+```
+powershell
+$csvPath = $actionContext.Configuration.csvPath
+$delimiter = $actionContext.Configuration.csvDelimiter
+```
+
+HelloID maakt van het formulier geen losse variabelen, maar bundelt alle ingevulde waarden in één PowerShell-object. Dat object heet `configuration` en is beschikbaar via `$actionContext.Configuration` in je script.  
+Je ziet dit terug in het script zodra je straks met de create-actie aan de slag gaat in Lab 7.
+
+---
+
+## ✅ Wat heb je geleerd?
+
+- Je hebt een configuratieformulier toegevoegd aan je PowerShell-doelsysteem in HelloID.
+- Je weet hoe je gebruikersinstellingen zoals `csvPath` en `csvDelimiter` flexibel kunt instellen via de interface.
+- Je begrijpt hoe HelloID deze waarden doorgeeft aan je script via `$actionContext.Configuration`.
+- Je scripts maak je herbruikbaar, overzichtelijk en vrij van hardcoded of gevoelige gegevens.
