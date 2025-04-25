@@ -2,10 +2,10 @@
 
 ### Wat ga je doen?
 
-In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bronsysteem vormt de basis van je provisioningproces: hier haal je de personeelsgegevens op die HelloID gebruikt om accounts aan te maken en te beheren.
+In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bronsysteem vormt de basis van je provisioningproces: hier haal je de personeelsgegevens op die HelloID gebruikt om accounts aan te maken en te beheren. Bij elke bronimport doorloopt HelloID namelijk een vaste flow: **Script ➞ Raw Data ➞ Mapping ➞ Snapshot ➞ Personen**. Dit is de basis voor een goed werkende koppeling. Als je deze flow begrijpt, wordt het bouwen, testen en oplossen van fouten een stuk overzichtelijker.
 
-💡 Waarom PowerShell?  
-Alle standaard bronsystemen in HelloID zijn gebouwd met PowerShell-scripts. Deze aanpak biedt maximale flexibiliteit: je kunt data ophalen uit CSV-bestanden, eigen systemen, API’s of databases. Zo kun je vrijwel elk type bron koppelen, ook als er geen commerciële HR-oplossing beschikbaar is.
+> 💡 Waarom PowerShell?  
+> Alle standaard bronsystemen in HelloID zijn gebouwd met PowerShell-scripts. Deze aanpak biedt maximale flexibiliteit: je kunt data ophalen uit CSV-bestanden, eigen systemen, API’s of databases. Zo kun je vrijwel elk type bron koppelen, ook als er geen commerciële HR-oplossing beschikbaar is.
 
 ---
 
@@ -15,19 +15,16 @@ Alle standaard bronsystemen in HelloID zijn gebouwd met PowerShell-scripts. Deze
    `C:\HelloID\SourceData`
 
 2. Download de voorbeeldgegevens van de volgende GitHub-pagina:  
-   👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data)
-
-3. Volg de onderstaande stappen om de vier benodigde bestanden te downloaden:
-   - Klik op elk bestand om het te openen:
-     - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
-     - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
-     - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
-     - [`T4E_HelloID_Contracts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Contracts.csv)
+   👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:
+   - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
+   - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
+   - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
+   - [`T4E_HelloID_Contracts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Contracts.csv)
    - In het geopende scherm klik je rechtsboven op de **"Download"** knop. Dit is een icoontje met een pijl naar beneden.  
      Wanneer je met je muis over het icoontje gaat, verschijnt de tekst 'Download raw file'. Klik op dit icoontje om het bestand te downloaden.
    - Herhaal dit voor alle vier de bestanden.
 
-4. Plaats de gedownloade bestanden in de map die je eerder hebt aangemaakt op de HelloID-server.
+3. Plaats de gedownloade bestanden in de map die je eerder hebt aangemaakt op de HelloID-server.
 
 ---
 
@@ -44,14 +41,14 @@ Alle standaard bronsystemen in HelloID zijn gebouwd met PowerShell-scripts. Deze
 7. Klik op **Import raw data** om een eerste testimport uit te voeren.
 8. Controleer de gegevens via het tabblad **Raw data**.
 
-📌 **Wat is Raw data precies?**  
+📌 Wat is Raw data precies?  
 Dit tabblad toont de ruwe informatie die HelloID via het script heeft opgehaald, voordat er iets wordt gemapt of gefilterd. Het is handig als je wilt weten: “Komt m’n data überhaupt binnen?”
 
-🔄 **Hoe werkt een bronimport in HelloID?**  
+🔄 Hoe werkt een bronimport in HelloID?  
 Elke import doorloopt dezelfde stappen:  
 **Script → Raw Data → Mapping → Snapshot → Personen**
 
-📚 **Meer uitleg:**  
+📚 Meer uitleg:  
 [Add a source system – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/add,-edit,-or-remove-a-source-system.html#add-a-source-system)
 
 ---
@@ -67,9 +64,9 @@ Elke import doorloopt dezelfde stappen:
 
 3. Voer opnieuw een import uit.
 
-4. Open het menu **Persons** en controleer of de velden goed zijn gevuld.
+4. Open het onderdeel **Persons** in je bronsysteem en klik op een persoon om te controleren of de velden goed zijn gevuld.
 
-🔄 **Let op bij wijzigingen:**  
+🔄 Let op bij wijzigingen:  
 Heb je net iets aangepast aan je mapping of script?  
 Klik dan altijd opnieuw op **Apply** om de wijziging toe te passen.  
 Je ziet de verandering pas terug na een **nieuwe import** of als je een **nieuwe snapshot** maakt.  
@@ -79,7 +76,14 @@ HelloID past wijzigingen niet automatisch toe in het bestaande overzicht.
 
 ### 🧠 Stap 4 – Complex field mapping toevoegen
 
-HelloID ondersteunt JavaScript-mapping. Hiermee kun je bijvoorbeeld naamconventies automatisch afleiden uit een code.
+In HelloID kun je brongegevens op drie manieren mappen: **Fixed**, **Field**, of **Complex**.  
+- Bij een Fixed mapping geef je een vaste waarde op.  
+- Bij een Field mapping kies je een veld uit de bron.  
+- Bij een Complex mapping schrijf je een stukje JavaScript om de waarde zelf te berekenen of om te zetten.
+
+In deze stap gebruik je een complex mapping om een naamconventiecode af te leiden uit een numerieke bronwaarde. Je schrijft dus een JavaScript-functie die HelloID uitvoert voor elke persoon die binnenkomt. Zo kun je logica toevoegen zoals “als de waarde 1 is, zet dan ‘PB’ in het veld `Name.Convention`”.
+
+👉 HelloID voert deze functie uit voor elke persoon in de brondata. Je gebruikt daarbij het `source` object, waarin alle velden uit de oorspronkelijke import beschikbaar zijn.
 
 1. Open de mapping voor personen en voeg een veld toe: `Name.Convention`.
 
@@ -98,10 +102,6 @@ HelloID ondersteunt JavaScript-mapping. Hiermee kun je bijvoorbeeld naamconventi
 
 4. Gebruik `source.Naamgebruik_code` als invoer voor je script.
 
-💡 Wat moet je hier precies doen?  
-In deze mapping maak je zelf de vertaalslag van een bronwaarde (bijv. 0 of 3) naar de juiste HelloID-naamconventie (zoals B of BP).  
-Dit gebeurt in de complex mapping van het veld, waarin je met JavaScript bepaalt welke naamconventiecode uiteindelijk wordt opgeslagen in HelloID.
-
 5. Test je functie via Preview en sla je mapping op (Apply).
 
 6. Voer opnieuw een import uit om de wijziging toe te passen.
@@ -115,7 +115,7 @@ Dit gebeurt in de complex mapping van het veld, waarin je met JavaScript bepaalt
 
 1. Ga naar het tabblad **System** van je bronsysteem.
 
-2. Klik op het moersleuteltje om de **Form JSON editor** te openen.
+2. Klik op het moersleutel-icoontje naast de tekst `Custom connector configuration` om de **Form JSON editor** te openen.
 
 3. Voeg een tekstveld toe voor het pad naar je brondata (`csvPath`).
 
