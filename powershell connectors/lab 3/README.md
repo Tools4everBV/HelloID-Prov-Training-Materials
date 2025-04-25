@@ -5,8 +5,7 @@
 ### Wat ga je doen?
 In dit lab ga je een ontwerp maken voor een doelsysteem. Dit is een belangrijke voorbereidende stap voordat je scripts en configuratie gaat opzetten. Je brengt in kaart wat de connector moet doen, welke gegevens er nodig zijn, en hoe je die wilt aanleveren.
 
-Of je nou implementatiepartner bent of zelf HelloID beheert binnen je organisatie: met dit ontwerp leg je de basis voor een goede provisioning-koppeling.
-
+Of je nou implementatiepartner bent of zelf HelloID beheert binnen je eigen organisatie: met dit ontwerp leg je de basis voor een goede provisioning-koppeling.
 
 ---
 
@@ -36,13 +35,16 @@ Stel: je bent HelloID-beheerder bij een organisatie die een eigen intranet heeft
 | Formaat               | Eén regel per persoon, puntkomma gescheiden                |
 | Acties                | Create, Update, Delete                                     |
 | Extra gegevensbron    | Active Directory (voor gebruikersnaam)                     |
-| Eisen                 | SamAccountName uit AD moet meegestuurd worden             |
+| Eisen                 | SamAccountName uit AD moet meegestuurd worden              |
 
 ---
 
 ## 3.3 Field mapping bepalen
 
 In deze stap zet je op een rij welke velden je nodig hebt, waar ze vandaan komen en of ze zichtbaar of wijzigbaar moeten zijn. Denk vanuit de provisioning-actie: welke gegevens zijn echt nodig om een account aan te maken of te wijzigen?
+
+ℹ️ Een *bronveld* is een veld dat via de ruwe data afkomstig is uit het HR-systeem (bijvoorbeeld via een CSV-bestand of API).  
+Het HelloID-veld hoort bij het **standaard persoonsmodel** van HelloID. Via de field mapping koppel je het bronveld aan het juiste HelloID-veld.
 
 | Attribuut            | Bronveld                                                 | Update? | Zichtbaar bij persoon | Notificatie? |
 |----------------------|-----------------------------------------------------------|---------|------------------------|--------------|
@@ -64,14 +66,14 @@ In deze stap zet je op een rij welke velden je nodig hebt, waar ze vandaan komen
 
 ## 3.4 Naamconventies bepalen
 
-Sommige doelsystemen verwachten een specifieke volgorde in de naamopbouw. Je bepaalt samen met de klant welke naamconventie je gebruikt:
+Sommige doelsystemen verwachten een specifieke volgorde in de naamopbouw. Je bepaalt samen met de betrokkenen — of dat nu je klant is of je eigen organisatie — welke naamconventie je gebruikt:
 
 | Code | Voorbeeld                                 | Uitleg                             |
 |------|--------------------------------------------|------------------------------------|
 | B    | Angie van den Hoeger                      | Geboortenaam                       |
-| PB   | Angie van de Dooley                       | Partnernaam – Geboortenaam        |
+| PB   | Angie van de Dooley                       | Partnernaam – Geboortenaam         |
 | P    | Angie van den Hoeger – van de Dooley      | Partnernaam                        |
-| BP   | Angie van de Dooley – van den Hoeger      | Geboortenaam – Partnernaam        |
+| BP   | Angie van de Dooley – van den Hoeger      | Geboortenaam – Partnernaam         |
 
 ---
 
@@ -103,11 +105,11 @@ Je maakt het script flexibel door instellingen zoals pad en scheidingsteken aan 
 
 ---
 
-## 3.7 Actieplan (Plan van Aanpak)
+## 3.7 Plan van Aanpak
 
-Maak samen een actieplan waarin je alle benodigde stappen opsomt. Dit helpt om niets te vergeten én zorgt dat je het project gestructureerd opbouwt.
+Maak samen een plan van aanpak waarin je alle benodigde stappen opsomt. Dit helpt om niets te vergeten én zorgt dat je het project gestructureerd opbouwt.
 
-1. Maak het ontwerp compleet en stel een actieplan op. (Lab 3)  
+1. Maak het ontwerp compleet en stel een plan van aanpak op. (Lab 3)  
 2. Voeg de connector toe in HelloID. (Lab 4)  
 3. Stel de field mapping in. (Lab 5)  
 4. Maak het invoerformulier voor de configuratieparameters. (Lab 6)  
