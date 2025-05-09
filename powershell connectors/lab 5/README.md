@@ -45,7 +45,7 @@ Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst ver
 
 - Controleer of de velden correct zijn ingeladen.  
 - Je zou nu deze velden moeten zien:  
-  `Department`, `DisplayName`, `EndDate`, `FamilyName`, `FamilyNamePrefix`, `Id`, `NickName`, `StartDate`, `Title` en `UserName`.
+  `Department`, `DisplayName`, `EndDate`, `FamilyName`, `FamilyNamePrefix`, `Id`, `Manager`, `NickName`, `StartDate`, `Title` en `UserName`.
 
 ---
 
