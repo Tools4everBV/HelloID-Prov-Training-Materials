@@ -47,7 +47,7 @@ Standaard staat een nieuw doelsysteem op disabled. Dat betekent dat HelloID nog 
 
 1. Ga naar het tabblad General van je doelsysteem.
 2. Zet de optie Disable target system uit, zodat je systeem actief is.
-3. Klik op Apply om de wijziging op te slaan.
+3. Je hoeft niets op te slaan — de wijziging wordt automatisch toegepast zodra je de toggle uitschakelt.
 
 ---
 
