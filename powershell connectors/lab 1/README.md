@@ -76,35 +76,34 @@ HelloID past wijzigingen niet automatisch toe in het bestaande overzicht.
 
 ### 🧠 Stap 4 – Complex field mapping toevoegen
 
-In HelloID kun je brongegevens op drie manieren mappen: **Fixed**, **Field**, of **Complex**.  
-- Bij een Fixed mapping geef je een vaste waarde op.  
-- Bij een Field mapping kies je een veld uit de bron.  
-- Bij een Complex mapping schrijf je een stukje JavaScript om de waarde zelf te berekenen of om te zetten.
+💡 In deze stap ga je zelf een kleine JavaScript-functie schrijven die een getal uit het bronbestand omzet naar een naamconventiecode. Dit is een voorbeeld van een complex mapping, waarbij je logica toevoegt aan de mapping via code.
 
-In deze stap gebruik je een complex mapping om een naamconventiecode af te leiden uit een numerieke bronwaarde. Je schrijft dus een JavaScript-functie die HelloID uitvoert voor elke persoon die binnenkomt. Zo kun je logica toevoegen zoals “als de waarde 1 is, zet dan ‘PB’ in het veld `Name.Convention`”.
+In HelloID kun je brongegevens op drie manieren mappen: Fixed, Field of Complex.
+- Fixed: je vult een vaste waarde in.
+- Field: je koppelt direct een veld uit het bronbestand.
+- Complex: je schrijft JavaScript om de waarde zelf te berekenen of om te zetten.
 
-👉 HelloID voert deze functie uit voor elke persoon in de brondata. Je gebruikt daarbij het `source` object, waarin alle velden uit de oorspronkelijke import beschikbaar zijn.
+Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, waarbij je de bronwaarde `Naamgebruik_code` gebruikt om de juiste conventiecode te bepalen.
 
 1. Open de mapping voor personen en voeg een veld toe: `Name.Convention`.
 
-2. Schrijf een JavaScript-functie die de bronwaarde (`source.Naamgebruik_code`) vertaalt naar de juiste HelloID-conventie.  
-   Gebruik alleen de waarden uit de kolom HelloID-conventie in de mapping. De kolom Uitleg is er alleen als naslag.
+2. Zet dit veld om naar een **Complex mapping (JavaScript)** en gebruik als basis het startscript van GitHub:  
+   👉 [`formatNamingConvention.js`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/formatNamingConvention.js)
 
-| Bronwaarde | HelloID-conventie | Uitleg |
-|------------|-------------------|--------|
-| 0 | B | Geboortenaam |
-| 1 | PB | Partnernaam – Geboortenaam |
-| 2 | P | Partnernaam |
-| 3 | BP | Geboortenaam – Partnernaam |
+   Pas de startfunctie aan zodat de functie de `source.Naamgebruik_code` vertaalt naar een van de volgende codes:
 
-3. Gebruik als basis het startscript voor naamconventie:  
-👉 [formatNamingConvention.js – GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/formatNamingConvention.js)
+   | Bronwaarde | HelloID-conventie | Uitleg |
+   |------------|-------------------|--------|
+   | 0          | B                 | Geboortenaam |
+   | 1          | PB                | Partnernaam – Geboortenaam |
+   | 2          | P                 | Partnernaam |
+   | 3          | BP                | Geboortenaam – Partnernaam |
 
-4. Gebruik `source.Naamgebruik_code` als invoer voor je script.
+3. Gebruik `source.Naamgebruik_code` als invoer voor je script.
 
-5. Test je functie via Preview en sla je mapping op (Apply).
+4. Test je functie via Preview en sla je mapping op (Apply).
 
-6. Voer opnieuw een import uit om de wijziging toe te passen.
+5. Doe opnieuw een import om de wijziging toe te passen.
 
 📚 Meer info over complex mapping:  
 [Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/provisioning/complex-source-mappings.html)
