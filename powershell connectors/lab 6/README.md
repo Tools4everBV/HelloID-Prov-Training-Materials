@@ -5,7 +5,7 @@
 
 In dit lab maak je een **configuratieformulier** aan in HelloID. Daarmee kun je instellingen zoals het pad naar het CSV-bestand en het scheidingsteken invullen via de interface, zonder dat je die hardcoded in je PowerShell-script hoeft te zetten.
 
-💡Waarom dit handig is:  
+💡Waarom dit handig is:
 Met een configuratieformulier houd je alle instellingen overzichtelijk bij elkaar, op één centrale plek. Dat heeft een paar voordelen:
 - Als er iets verandert, hoef je niet je script aan te passen, je past gewoon de waarden in het formulier aan.
 - Andere beheerders kunnen dit ook aanpassen via de HelloID-interface, zonder dat ze iets in de PowerShell-code hoeven te wijzigen.
@@ -20,13 +20,27 @@ We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad 
 
 ### Wat moet je doen:
 
-1. Ga in HelloID naar je PowerShell-doelsysteem.
-2. Open het tabblad **Account**.
+## 🛠️ Stap 1 – Formulier aanmaken
+
+We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad naar het CSV-bestand en het scheidingsteken kunt instellen. Zo houd je die instellingen netjes uit je script.
+
+### Wat moet je doen:
+
+1. Ga in HelloID naar je PowerShell-doelsysteem.  
+2. Open het tabblad **Account**.  
 3. Open de configuratie van de **Custom connector configuration**.
+
+> ✂️ **Let op:** de eerste keer dat je het formulier opent, zie je een voorbeeldconfiguratie met allerlei invoervelden zoals wachtwoord, e-mail, radioknoppen en dropdowns.  
+> Voor deze training heb je die allemaal niet nodig.  
+>  
+> **Verwijder alles behalve het eerste veld** (type `"input"` met als label “Example required text”).  
+> Gebruik dat veld als basis en pas de inhoud aan voor `csvPath`.  
+> Vervolgens kun je het veld dupliceren en aanpassen voor `csvDelimiter`.
+
 4. Voeg twee tekstvelden toe:
    - Eén met de key `csvPath`  
      Labelvoorbeeld: *Pad naar het accountsbestand*  
-     Voorbeeldwaarde: `C:\\HelloID\\Training\\Target\\accounts.csv`
+     Voorbeeldwaarde: `C:\\HelloID\\TargetData\\accounts.csv`
    - Eén met de key `csvDelimiter`  
      Labelvoorbeeld: *Scheidingsteken voor CSV*  
      Voorbeeldwaarde: `;`

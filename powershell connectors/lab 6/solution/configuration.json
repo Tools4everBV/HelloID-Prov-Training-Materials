@@ -2,7 +2,7 @@
     {
         "key": "csvPath",
         "type": "input",
-        "defaultValue": "",
+        "defaultValue": "C:\\HelloID\\TargetData\\accounts.csv",
         "templateOptions": {
             "label": "Pad naar bestand",
             "placeholder": "Het volledige pad naar het bestand",
@@ -13,7 +13,7 @@
     {
         "key": "csvDelimiter",
         "type": "input",
-        "defaultValue": "",
+        "defaultValue": ";",
         "templateOptions": {
             "label": "Field delimiter",
             "placeholder": "De field delimiter",
