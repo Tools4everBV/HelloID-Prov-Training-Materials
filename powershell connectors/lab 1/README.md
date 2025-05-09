@@ -99,11 +99,9 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
    | 2          | P                 | Partnernaam |
    | 3          | BP                | Geboortenaam – Partnernaam |
 
-3. Gebruik `source.Naamgebruik_code` als invoer voor je script.
+3. Test je functie via Preview en sla je mapping op (Apply).
 
-4. Test je functie via Preview en sla je mapping op (Apply).
-
-5. Doe opnieuw een import om de wijziging toe te passen.
+4. Doe opnieuw een import om de wijziging toe te passen.
 
 📚 Meer info over complex mapping:  
 [Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/provisioning/complex-source-mappings.html)
