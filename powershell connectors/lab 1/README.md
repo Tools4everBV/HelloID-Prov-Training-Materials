@@ -12,7 +12,7 @@ In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bron
 ### 🧰 Stap 1 – Voorbereiding
 
 1. Maak op de HelloID-server een nieuwe map aan, bijvoorbeeld:  
-   `C:\HelloID\SourceData`
+   `C:\HelloID\SourceData\`
 
 2. Download de voorbeeldgegevens van de volgende GitHub-pagina:  
    👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:

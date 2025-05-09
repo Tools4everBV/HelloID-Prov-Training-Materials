@@ -2,7 +2,7 @@
 # HelloID-Conn-Prov-Source-Training-Departments
 #####################################################
 
-$importSourcePath = "C:\Tools4ever\HelloID\Training\Connector\SourceData\"
+$importSourcePath = "C:\HelloID\SourceData\"
 $delimiter = ";"
 
 function Get-SourceConnectorData { 

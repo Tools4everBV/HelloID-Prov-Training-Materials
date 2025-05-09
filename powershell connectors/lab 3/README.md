@@ -97,7 +97,7 @@ Je maakt het script flexibel door instellingen zoals pad en scheidingsteken aan 
 
 | Label              | Key (PowerShell) | Voorbeeldwaarde                        |
 |--------------------|------------------|----------------------------------------|
-| Pad naar bestand   | `csvPath`        | `C:\HelloID\Training\accounts.csv`     |
+| Pad naar bestand   | `csvPath`        | `C:\HelloID\TargetData\accounts.csv`     |
 | Scheidingsteken    | `csvDelimiter`   | `;`                                    |
 
 > 🧠 **Tip:**  

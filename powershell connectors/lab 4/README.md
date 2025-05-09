@@ -35,7 +35,7 @@ HelloID kan PowerShell-scripts op twee manieren uitvoeren: in de cloud of via ee
 
 ### ℹ️ Waarom is dit nodig?
 
-Als je deze optie niet inschakelt, wordt het script uitgevoerd via de cloud agent. En die heeft geen toegang tot bestanden op `C:\HelloID\Training\Target\accounts.csv`. Door de lokale agent te gebruiken, zorg je ervoor dat HelloID het script uitvoert op jouw eigen server — waar dat bestand wél bereikbaar is.
+Als je deze optie niet inschakelt, wordt het script uitgevoerd via de cloud agent. En die heeft geen toegang tot bestanden op `C:\HelloID\TargetData`. Door de lokale agent te gebruiken, zorg je ervoor dat HelloID het script uitvoert op jouw eigen server — waar dat bestand wél bereikbaar is.
 
 ---
 

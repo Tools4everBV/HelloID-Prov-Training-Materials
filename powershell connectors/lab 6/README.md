@@ -36,7 +36,7 @@ We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad 
 Na het opslaan verschijnt er een extra tabblad genaamd **Configuration**. Daar vul je de waarden in die het script straks nodig heeft.
 
 7. Ga naar het tabblad **Configuration** en vul de twee velden als volgt in:
-   - `csvPath`: `C:\HelloID\Training\Target\accounts.csv`
+   - `csvPath`: `C:\HelloID\TargetData\accounts.csv`
    - `csvDelimiter`: `;`
 8. Klik ook hier rechtsboven op **Apply** om de waarden op te slaan.
 

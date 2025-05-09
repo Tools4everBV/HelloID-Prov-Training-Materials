@@ -16,10 +16,10 @@ Het script in de create-actie zorgt dat HelloID een account aanmaakt in het doel
 
 1. Download het startscript voor deze labopdracht vanuit GitHub:  
    👉 [`create.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/create.ps1)
-2. Download het bijbehorende accountsbestand en plaats dit in de map `C:\HelloID\Training`:  
+2. Download het bijbehorende accountsbestand en plaats dit in de map `C:\HelloID\TargetData`:  
    👉 [`accounts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/accounts.csv)
 3. Controleer in HelloID op het tabblad **Configuration** of de waarden kloppen met wat je in Lab 6 hebt ingevuld:
-   - `csvPath`: `C:\HelloID\Training\accounts.csv`
+   - `csvPath`: `C:\HelloID\TargetData\accounts.csv`
    - `csvDelimiter`: `;`
 
 ---
