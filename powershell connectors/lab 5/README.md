@@ -34,7 +34,7 @@ Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst ver
 1. Download het startbestand `fieldMapping.json` uit de GitHub-repository:  
    👉 [`fieldMapping.json`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%205/fieldMapping.json)
 
-2. Klik op **Import mapping**.  
+2. Klik op **Import** mapping.  
 3. Selecteer het JSON-bestand dat je net hebt gedownload en bevestig de import.
 
 > 💡 De velden in deze mapping zijn al gedeeltelijk ingevuld op basis van het ontwerp. Een aantal velden zijn bewust nog leeg of vereisen aanpassing — dat ga je doen in stap 2.
@@ -53,7 +53,7 @@ Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst ver
 
 Open je PowerShell-doelsysteem in HelloID en ga naar het tabblad **Fields**.
 
-Gebruik de tabel **3.3 Field mapping** uit je ontwerp (zie hieronder) als uitgangspunt.  
+Gebruik de tabel **3.3 Field mapping** uit je ontwerp (zie ook hieronder) als uitgangspunt.  
 Deze tabel komt uit het lab *Lab 3 – Ontwerp maken voor het doelsysteem*.
 
 > 💡 Je werkt in deze stap verder met de mapping die je zojuist hebt geïmporteerd. Daarin staan al een aantal velden. Nu ga je de mapping verder aanvullen en corrigeren zodat deze precies klopt met je ontwerp en de eisen van je doelsysteem.
@@ -89,16 +89,16 @@ Gebruik hiervoor onderstaande referentie uit **tabel 3.3 van Lab 3**:
 | Department           | PrimaryContract.Department.DisplayName                  | ✅      | ❌                     | ❌           |
 | DisplayName          | DisplayName                                             | ✅      | ✅                     | ✅           |
 | EndDate              | PrimaryContract.EndDate                                 | ✅      | ❌                     | ❌           |
-| Id                   | ExternalID                                              | ❌      | ❌                     | ❌           |
 | FamilyName           | Name.FamilyName                                         | ✅      | ❌                     | ❌           |
+| FamilyNamePrefix     | Name.FamilyNamePrefix                                   | ✅      | ❌                     | ❌           |
+| Id                   | ExternalID                                              | ❌      | ❌                     | ❌           |
+| NameConventionCode   | Name.Convention                                         | ✅      | ❌                     | ❌           |
 | NickName             | Name.NickName                                           | ✅      | ❌                     | ❌           |
+| PartnerName          | Name.FamilyNamePartner                                  | ✅      | ❌                     | ❌           |
+| PartnerNamePrefix    | Name.FamilyNamePartnerPrefix                            | ✅      | ❌                     | ❌           |
 | StartDate            | PrimaryContract.StartDate                               | ✅      | ❌                     | ❌           |
 | Title                | PrimaryContract.Title.Name                              | ✅      | ❌                     | ✅           |
 | UserName             | Person.Accounts.MicrosoftActiveDirectory.SamAccountName | ❌      | ✅                     | ✅           |
-| FamilyNamePrefix     | Name.FamilyNamePrefix                                   | ✅      | ❌                     | ❌           |
-| PartnerNamePrefix    | Name.FamilyNamePartnerPrefix                            | ✅      | ❌                     | ❌           |
-| PartnerName          | Name.FamilyNamePartner                                  | ✅      | ❌                     | ❌           |
-| NameConventionCode   | Name.Convention                                         | ✅      | ❌                     | ❌           |
 
 ---
 
@@ -123,7 +123,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 2. Open de optie **Use account data from systems**.
 
-3. Selecteer het **Active Directory-doelsysteem** als afhankelijk systeem.
+3. Selecteer het **Microsoft Active Directory**-doelsysteem als afhankelijk systeem.
 
 > 💡 Hierdoor kun je gegevens uit het AD-systeem ophalen en gebruiken in deze connector, bijvoorbeeld de gebruikersnaam uit het AD-veld `SamAccountName`.
 
@@ -144,14 +144,16 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 ### 🧪 Koppeling testen via een business rule
 
-1. Maak een business rule waarbij slechts één persoon wordt geselecteerd (bijvoorbeeld op personeelsnummer) uit de csv-bronconnector, zodat je zeker weet dat de benodigde gegevens beschikbaar zijn.
+1. Maak een nieuwe business rule waarbij in de **conditie** slechts één persoon wordt geselecteerd (bijvoorbeeld op personeelsnummer) uit de csv-bronconnector. Zo weet je zeker dat de benodigde gegevens beschikbaar zijn.
 
-2. Voer een evaluatie uit van de business rule.  
-   Wordt er een create-actie voorgesteld voor het AD-doelsysteem? Voer dan een enforcement uit om het account daadwerkelijk toe te wijzen.
+2. Zorg ervoor dat aan deze regel een Active Directory **Account Entitlement** wordt gekoppeld en publiceer de business rule.
 
-3. Controleer bij de betreffende persoon op het tabblad Audit Logs of HelloID het AD-account succesvol heeft uitgedeeld.
+3. Voer een evaluatie uit van de business rule.  
+   Wordt er een **create-actie** voorgesteld voor het Active Directory-doelsysteem? Voer dan een **enforcement** uit om het account daadwerkelijk toe te wijzen.
 
-4. Ga vervolgens naar het tabblad Accounts en controleer of het veld SamAccountName zichtbaar is onder het AD-account.
+4. Controleer bij de betreffende persoon op het tabblad **Audit Logs** of HelloID het Active Directory-account succesvol heeft uitgedeeld.
+
+5. Ga naar het tabblad **Accounts** en controleer of het veld `SamAccountName` zichtbaar is onder het Active Directory-account.
 
 ---
 

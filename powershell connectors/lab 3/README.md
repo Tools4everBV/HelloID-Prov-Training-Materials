@@ -46,21 +46,21 @@ In deze stap zet je op een rij welke velden je nodig hebt, waar ze vandaan komen
 ℹ️ Een *bronveld* is een veld dat via de ruwe data afkomstig is uit het HR-systeem (bijvoorbeeld via een CSV-bestand of API).  
 Het HelloID-veld hoort bij het **standaard persoonsmodel** van HelloID. Via de field mapping koppel je het bronveld aan het juiste HelloID-veld.
 
-| Attribuut            | Bronveld                                                 | Update? | Zichtbaar bij persoon | Notificatie? |
-|----------------------|-----------------------------------------------------------|---------|------------------------|--------------|
-| Department           | PrimaryContract.Department.DisplayName                    | ✅      | ❌                     | ❌           |
-| DisplayName          | DisplayName                                               | ✅      | ✅                     | ✅           |
-| EndDate              | PrimaryContract.EndDate                                   | ✅      | ❌                     | ❌           |
-| Id                   | ExternalID                                                | ❌      | ❌                     | ❌           |
-| FamilyName           | Name.FamilyName                                           | ✅      | ❌                     | ❌           |
-| NickName             | Name.NickName                                             | ✅      | ❌                     | ❌           |
-| StartDate            | PrimaryContract.StartDate                                 | ✅      | ❌                     | ❌           |
-| Title                | PrimaryContract.Title.Name                                | ✅      | ❌                     | ✅           |
-| UserName             | Person.Accounts.MicrosoftActiveDirectory.SamAccountName   | ❌      | ✅                     | ✅           |
-| FamilyNamePrefix     | Name.FamilyNamePrefix                                     | ✅      | ❌                     | ❌           |
-| PartnerNamePrefix    | Name.FamilyNamePartnerPrefix                              | ✅      | ❌                     | ❌           |
-| PartnerName          | Name.FamilyNamePartner                                    | ✅      | ❌                     | ❌           |
-| NameConventionCode   | Name.Convention                                           | ✅      | ❌                     | ❌           |
+| Attribuut            | Bronveld                                               | Update? | Zichtbaar bij persoon | Notificatie? |
+|----------------------|---------------------------------------------------------|---------|------------------------|--------------|
+| Department           | PrimaryContract.Department.DisplayName                  | ✅      | ❌                     | ❌           |
+| DisplayName          | DisplayName                                             | ✅      | ✅                     | ✅           |
+| EndDate              | PrimaryContract.EndDate                                 | ✅      | ❌                     | ❌           |
+| FamilyName           | Name.FamilyName                                         | ✅      | ❌                     | ❌           |
+| FamilyNamePrefix     | Name.FamilyNamePrefix                                   | ✅      | ❌                     | ❌           |
+| Id                   | ExternalID                                              | ❌      | ❌                     | ❌           |
+| NameConventionCode   | Name.Convention                                         | ✅      | ❌                     | ❌           |
+| NickName             | Name.NickName                                           | ✅      | ❌                     | ❌           |
+| PartnerName          | Name.FamilyNamePartner                                  | ✅      | ❌                     | ❌           |
+| PartnerNamePrefix    | Name.FamilyNamePartnerPrefix                            | ✅      | ❌                     | ❌           |
+| StartDate            | PrimaryContract.StartDate                               | ✅      | ❌                     | ❌           |
+| Title                | PrimaryContract.Title.Name                              | ✅      | ❌                     | ✅           |
+| UserName             | Person.Accounts.MicrosoftActiveDirectory.SamAccountName | ❌      | ✅                     | ✅           |
 
 ---
 
