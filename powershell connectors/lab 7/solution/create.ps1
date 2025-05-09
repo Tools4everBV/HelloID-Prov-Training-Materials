@@ -57,16 +57,16 @@ function Get-CsvUser {
         $CorrelationField,
 
         [string]
-        $correlationValue
+        $CorrelationValue
     )
 
     if (Test-Path $Path) {
         $data = Import-Csv -Path $Path -Delimiter $delimiter
-        $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
-        Write-Output $user
+        $user = $data | Where-Object { $_.$orrelationField -eq $CorrelationValue }
     } else {
         $user = $null
     }
+    Write-Output $user
 }
 
 function New-CsvUser {
@@ -92,7 +92,7 @@ function New-CsvUser {
     $data = [array]$csv + $User | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
 
-    return $User
+    return $data
 }
 #endregion
 
@@ -129,6 +129,8 @@ try {
         #$correlatedAccount = Get-CsvUser -Path $actionContext.Configuration.csvPath -Delimiter $actionContext.Configuration.csvDelimiter -CorrelationField $correlationField -CorrelationValue $correlationValue
 
         # End < Write Get logic here >
+    } else {
+        throw 'Correlation is not enabled'
     }
 
     if ($null -ne $correlatedAccount) {

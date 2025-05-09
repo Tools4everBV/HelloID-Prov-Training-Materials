@@ -14,9 +14,7 @@ Het script in de create-actie zorgt dat HelloID een account aanmaakt in het doel
 
 ## 🧰 Stap 1 – Voorbereidingen
 
-1. Download het startscript voor deze labopdracht vanuit GitHub:  
-   👉 [`create.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/create.ps1)
-2. Download het bijbehorende accountsbestand en plaats dit in de map `C:\HelloID\TargetData`:  
+1. Download het  accountsbestand en plaats dit in de map `C:\HelloID\TargetData`:  
    👉 [`accounts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/accounts.csv)
 3. Controleer in HelloID op het tabblad **Configuration** of de waarden kloppen met wat je in Lab 6 hebt ingevuld:
    - `csvPath`: `C:\HelloID\TargetData\accounts.csv`
@@ -99,19 +97,23 @@ De `$outputContext.Data` bevat optioneel extra gegevens over het gevonden accoun
 In deze stap breid je het script uit met de **create-actie**. Als HelloID geen bestaand account vindt, moet het script een nieuw account aanmaken in het bestand `accounts.csv`.
 
 💡 **Waarom dit belangrijk is?**  
-Als deze logica ontbreekt, worden er geen nieuwe accounts aangemaakt — ook niet als dat wel zou moeten. Je script moet dus expliciet kunnen zeggen: “er is geen match, dus ik maak een nieuw account aan”.
+Als deze logica ontbreekt, worden er geen nieuwe accounts aangemaakt — ook niet als dat wel zou moeten. Je script moet dus expliciet kunnen aangeven: “er is geen match, dus ik maak een nieuw account aan”.
 
 1. Voeg in het script de aanroep toe van de functie `New-CsvUser` om een nieuwe regel toe te voegen aan het bestand `accounts.csv`.  
    Plaats deze aanroep binnen het blok dat wordt uitgevoerd als er tijdens de correlatie **geen account is gevonden** (dus wanneer `$correlatedAccount` leeg is).  
-   Omdat je in dit script niets doet met de uitvoer van deze functie, schrijf je de aanroep in de vorm:  
+   Schrijf de aanroep als volgt:
+
    ```powershell
-   $null = New-CsvUser ...
+   $createdAccount = New-CsvUser ...
    ```
-   Hiermee geef je aan dat je de output negeert, maar dat de functie wel wordt uitgevoerd.  
+
+   Hiermee sla je de uitvoer op in `$createdAccount`, zodat je de accountreferentie later kunt teruggeven aan HelloID.
+
    Gebruik hiervoor de volgende variabelen als parameters van de functie:
    - `$actionContext.Configuration.csvPath`: pad naar het CSV-bestand.
    - `$actionContext.Configuration.csvDelimiter`: scheidingsteken.
    - `$actionContext.Data`: dit object bevat alle gegevens van de gebruiker op basis van de mapping in HelloID.
+
 2. Test het script in de script editor met de **Preview-knop**:
    - Kies een persoon die **nog niet** voorkomt in het bestand `accounts.csv`.
    - Controleer of HelloID aangeeft dat er een **nieuw account aangemaakt zou worden**.
@@ -153,26 +155,31 @@ Omdat je nu wilt controleren of er daadwerkelijk iets wordt toegevoegd aan het C
 In deze stap controleer je of de create-actie ook correct wordt uitgevoerd binnen de volledige provisioningflow van HelloID — dus niet alleen in de script editor, maar als onderdeel van een business rule.
 
 💡 **Waarom dit belangrijk is?**  
-De previewfunctie is handig voor losse scripts, maar uiteindelijk wil je weten of alles samenwerkt: de mapping, de correlatie, het script en de business rules. Deze test laat zien of HelloID het account ook echt gaat aanmaken op basis van de provisioningregels.  
+De previewfunctie is handig voor losse scripts, maar uiteindelijk wil je weten of alles samenwerkt: de mapping, de correlatie, het script en de business rules.  
 HelloID geeft **alleen via een business rule** een entitlement uit. Pas op dat moment wordt ook de **account reference** opgeslagen.  
 Die reference heb je nodig om vervolgscripts zoals update of delete goed te kunnen testen. Als je dus verder wilt testen via de previewfunctie, moet het account eerst zijn uitgedeeld via een business rule.
 
 1. Open de business rule die je eerder hebt aangemaakt (in **Lab 5.2**) en voeg twee personen toe aan de conditie:
    - Eén persoon die **al voorkomt** in het bestand `accounts.csv`.
    - Eén persoon die **nog niet voorkomt**.
-2. Controleer of bij beide personen zowel een AD-account als een account van het PowerShell-doelsysteem gekoppeld wordt.
+
+2. Controleer op het tabblad **Entitlements** of er zowel een Active Directory-account als een account van het PowerShell-doelsysteem gekoppeld wordt.
+
 3. Voer een **Evaluate** uit.  
    Controleer of er acties zijn gegenereerd voor het PowerShell-doelsysteem en of deze overeenkomen met wat je verwacht.  
    (Bijvoorbeeld: wordt er voor beide personen een create-actie voorgesteld?)
+
 4. Voer daarna de **enforcement** uit om de acties echt uit te voeren.
-5. Controleer in HelloID bij de betreffende personen of de AD-accounts zijn aangemaakt.  
+
+5. Controleer in HelloID bij de betreffende personen of de Active Directory-accounts zijn aangemaakt.  
    Ga naar het tabblad **Accounts** van de persoon en kijk of de `SamAccountName` wordt weergegeven.  
    (Deze heb je in **Lab 5.2** zichtbaar gemaakt via accountdata.)
+
 6. Controleer of de **acties** voor het PowerShell-doelsysteem correct zijn uitgevoerd:
    - Bekijk de **auditlog van de persoon** of
    - Ga naar **Business → Entitlements → History** om de status terug te zien.
-7. Open het bestand `accounts.csv` en controleer of de nieuwe persoon correct is toegevoegd.  
-   - Als de actie succesvol is uitgevoerd, controleer dan het bestand `accounts.csv`.
+
+7. Open het bestand `accounts.csv` en controleer of de nieuwe persoon correct is toegevoegd.
 
 ---
 

@@ -40,10 +40,10 @@ We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad 
 4. Voeg twee tekstvelden toe:
    - Eén met de key `csvPath`  
      Labelvoorbeeld: *Pad naar het accountsbestand*  
-     Voorbeeldwaarde: `C:\\HelloID\\TargetData\\accounts.csv`
+     Omschrijving: `Het pad naar het csv-bestand waar de accounts in staan`
    - Eén met de key `csvDelimiter`  
      Labelvoorbeeld: *Scheidingsteken voor CSV*  
-     Voorbeeldwaarde: `;`
+     Omschrijving: `De delimiter die gebruikt wordt in het CSV-bestand`
 5. Geef de velden duidelijke namen zodat collega’s snappen wat ze moeten invullen.
 6. Klik op **Apply** om het formulier op te slaan.
 

@@ -57,12 +57,12 @@ function Get-CsvUser {
         $CorrelationField,
 
         [string]
-        $correlationValue
+        $CorrelationValue
     )
 
     if (Test-Path $Path) {
         $data = Import-Csv -Path $Path -Delimiter $delimiter
-        $user = $data | Where-Object { $_.$correlationField -eq $correlationValue }
+        $user = $data | Where-Object { $_.$CorrelationField -eq $CorrelationValue }
         Write-Output $user
     } else {
         $user = $null
@@ -117,6 +117,8 @@ try {
         # Start < Write Get logic here >
 
         # End < Write Get logic here >
+    } else {
+        throw 'Correlation is not enabled'
     }
 
     if ($null -ne $correlatedAccount) {
