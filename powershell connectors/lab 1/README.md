@@ -135,6 +135,8 @@ Zo kun je het script flexibel hergebruiken in andere omgevingen, en collega’s 
 📚 Meer info over inputformulieren:  
 [Input Forms – HelloID Docs](https://docs.helloid.com/en/provisioning/target-systems/powershell-target-systems/input-forms--provisioning-systems-.html){:target="_blank"}
 
+<a href="https://docs.helloid.com/en/provisioning/target-systems/powershell-target-systems/input-forms--provisioning-systems-.html" target="_blank">Input Forms – HelloID Docs/a>
+
 ---
 
 ### ✅ Wat heb je geleerd?
