@@ -61,7 +61,7 @@ Dit is vooral belangrijk voor velden die je gebruikt bij de naamgeneratie van ge
 1. Ga naar het tabblad **Persons** van je bronsysteem.  
 2. Zoek het veld `Name.NickName`.  
 3. Zet de schakelaar aan bij **Require this field**.  
-4. Klik op **Save** en sluit de configuratie van de bronkoppeling door op **Close** te klikken.
+4. Klik op **Apply** en sluit de configuratie van de bronkoppeling door op **Close** te klikken.
 
 ---
 
