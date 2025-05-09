@@ -133,7 +133,7 @@ Met een configuratieformulier voorkom je hardcoded instellingen in je scripts.
 Zo kun je het script flexibel hergebruiken in andere omgevingen, en collega’s kunnen het makkelijker beheren zonder in de code te hoeven duiken.
 
 📚 Meer info over inputformulieren:  
-[Input Forms – HelloID Docs](https://docs.helloid.com/en/provisioning/input-forms.html)
+[Input Forms – HelloID Docs](https://docs.helloid.com/en/provisioning/target-systems/powershell-target-systems/input-forms--provisioning-systems-.html){:target="_blank"}
 
 ---
 
