@@ -46,13 +46,14 @@ Bij een delete-actie weet HelloID al welk account verwijderd moet worden. Die in
    - Check of de juiste gebruiker wordt gevonden
    - Als de gebruiker niet wordt gevonden, logt het script een melding, maar zet wel `Success = $true`
 
-ℹ️ Let op: het delete-script moet altijd succesvol zijn — ook als er geen match is. Je wilt namelijk niet dat een foutmelding de hele workflow blokkeert.
+ℹ️ Let op: het delete-script moet altijd succesvol zijn — ook als er geen match is. 
+Je wilt namelijk niet dat de hele provisioningflow wordt geblokkeerd als het account bijvoorbeeld al verwijderd is.
 
 ---
 
 ## 🧽 Stap 3 – Verwijderen van de gebruiker
 
-Als de gebruiker is gevonden, moet je deze verwijderen uit het CSV-bestand.
+Als het script een gebruiker vindt, moet die regel automatisch uit het CSV-bestand worden verwijderd.
 
 ### Wat moet je doen?
 
@@ -74,7 +75,7 @@ In deze stap controleer je of het script daadwerkelijk een regel uit het CSV-bes
 
 ### Wat moet je doen?
 
-1. Zet **tijdelijk** bovenin het script:
+1. Zet **tijdelijk** bovenin het script:ja
    ```powershell
    $actionContext.dryRun = $false
    ```
@@ -125,4 +126,13 @@ Tot slot controleer je of het delete-script ook goed werkt binnen de volledige p
 - Je weet hoe je de uitvoering controleert via auditlogs en CSV-validatie.
 - Je begrijpt dat een delete-actie altijd succesvol moet zijn — ook als het account niet (meer) gevonden wordt.
 
-🎉 Dit was het laatste lab van de training! Je hebt nu de volledige lifecycle van een account ingericht: van aanmaken tot aanpassen én verwijderen — allemaal met je eigen PowerShell-scripts in HelloID.
+---
+
+🎉 Gefeliciteerd!  
+Je hebt nu een complete provisioningconnector gebouwd met PowerShell: van create tot update en delete.  
+HelloID voert al deze acties automatisch uit op basis van je eigen scripts, field mappings en business rules.
+
+💡 **Ben je eerder klaar met de oefeningen?**  
+Dan kun je ook zelfstandig aan de slag met het schrijven van een **Enable**- en **Disable**-script.  
+Gebruik hiervoor de voorbeelden uit de HelloID-template repository:  
+👉 [`HelloID-Conn-Prov-Target-V2-Template`](https://github.com/Tools4everBV/HelloID-Conn-Prov-Target-V2-Template)

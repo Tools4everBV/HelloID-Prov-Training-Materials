@@ -35,9 +35,10 @@ $actionContext.References.Account
 ```
 
 1. Implementeer op de juiste plek in het script de functieaanroep `Get-CsvUser`.  
-   Geef hierbij de juiste parameters mee: het pad en de delimiter van het bestand, de account reference, en sla het resultaat op in een variabele.
+   Geef hierbij de juiste parameters mee: het pad en de delimiter van het bestand, en de account reference.  
+   **Sla het resultaat op in de variabele `$correlatedAccount`.** Je gebruikt dit object later om te vergelijken en bij te werken.
 
-2. ✅ Test of het ophalen van een gebruiker goed werkt.  
+2. Test of het ophalen van een gebruiker goed werkt.  
    In het startscript is standaard een foutmelding opgenomen voor het geval er geen gebruiker wordt gevonden. Controleer of deze foutafhandeling werkt zoals bedoeld.
 
    👉 Gebruik hiervoor de **Preview-knop** in de script editor:
@@ -57,7 +58,8 @@ $actionContext.References.Account
    👉 Deze logica zit al in het startscript én in het HelloID-doelsysteemtemplate dat we als basis gebruiken:  
    [`HelloID-Conn-Prov-Target-V2-Template`](https://github.com/Tools4everBV/HelloID-Conn-Prov-Target-V2-Template)
 
-   ✅ Zoek in het script naar deze vergelijking en probeer te begrijpen hoe het script bepaalt of er een update nodig is.
+   Kijk in je eigen update-script in HelloID hoe deze vergelijking met `Compare-Object` is opgebouwd.  
+   Zo zie je wanneer het script besluit dat er iets gewijzigd is en een update moet worden uitgevoerd.
 
 2. **Werk de update-actie uit op de juiste plek in het script.**  
    Een schrijfactie (zoals het bijwerken van het CSV-bestand) mag alleen worden uitgevoerd als `dryRun` niet op `true` staat.  

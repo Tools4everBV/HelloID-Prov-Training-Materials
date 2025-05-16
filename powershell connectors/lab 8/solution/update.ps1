@@ -187,10 +187,10 @@ try {
             Write-Information "No changes to Training account with accountReference: [$($actionContext.References.Account)]"
 
             $outputContext.Success = $true
-            $outputContext.AuditLogs.Add([PSCustomObject]@{
-                    Message = 'No changes will be made to the account during enforcement'
-                    IsError = $false
-                })
+            # $outputContext.AuditLogs.Add([PSCustomObject]@{
+            #         Message = 'No changes will be made to the account during enforcement'
+            #         IsError = $false
+            #     })
             break
         }
 
