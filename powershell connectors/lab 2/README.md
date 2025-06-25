@@ -43,7 +43,7 @@ Dit beschermt je provisioningproces tegen fouten door onjuiste of incomplete geg
 1. Open het bestand `T4E_HelloID_Persons.csv`.  
 2. Verwijder de regel van bijvoorbeeld **Xaviera Foley**.  
 3. Sla het bestand op.  
-4. Ga terug naar HelloID en start een import van het nieuwe bronsysteem met **'Start Import'**.
+4. Ga terug naar HelloID en start een import van het nieuwe csv-bronsysteem met **'Start Import'**.
 
 > ⛔️ De import wordt nu geblokkeerd. HelloID ziet dat er een persoon ontbreekt en grijpt in — precies wat je met de threshold wilde bereiken. Een geblokkeerde import kun je handmatig goedkeuren via het tabblad **Import** van je bronsysteem.
 
@@ -70,7 +70,7 @@ Dit is vooral belangrijk voor velden die je gebruikt bij de naamgeneratie van ge
 1. Open opnieuw het bestand `T4E_HelloID_Persons.csv`.  
 2. Maak het veld `NickName` leeg bij de regel van bijvoorbeeld **Walker Clark**.  
 3. Sla het bestand op.  
-4. Ga naar HelloID en start een import van het nieuwe bronsysteem met **'Start Import'**.
+4. Ga naar HelloID en start een import van het nieuwe csv-bronsysteem met **'Start Import'**.
 
 > ✅ De import wordt uitgevoerd, maar **Walker Clark** wordt geblokkeerd en verschijnt op het tabblad **Blocked Persons**.  
 > **Let op:** Een geblokkeerde persoon kan niet goedgekeurd of doorgezet worden. Je kunt dit alleen oplossen door het veld in het HR-systeem in te vullen of de optie **Require this field** uit te schakelen.
