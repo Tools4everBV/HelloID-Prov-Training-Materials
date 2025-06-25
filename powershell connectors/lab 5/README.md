@@ -119,7 +119,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 ### 🪝 Het PowerShell-systeem afhankelijk maken van data uit het Active Directory-systeem
 
-1. Ga naar het tabblad **Accounts** van je PowerShell-doelsysteem.
+1. Ga naar het tabblad **Account** van je PowerShell-doelsysteem.
 
 2. Open de optie **Use account data from systems**.
 
@@ -153,7 +153,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 4. Controleer bij de betreffende persoon op het tabblad **Audit Logs** of HelloID het Active Directory-account succesvol heeft uitgedeeld.
 
-5. Ga naar het tabblad **Accounts** en controleer of het veld `SamAccountName` zichtbaar is onder het Active Directory-account.
+5. Ga naar het tabblad **Account** en controleer of het veld `SamAccountName` zichtbaar is onder het Active Directory-account.
 
 ---
 
