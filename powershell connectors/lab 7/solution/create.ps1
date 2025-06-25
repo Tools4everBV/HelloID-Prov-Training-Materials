@@ -62,7 +62,7 @@ function Get-CsvUser {
 
     if (Test-Path $Path) {
         $data = Import-Csv -Path $Path -Delimiter $delimiter
-        $user = $data | Where-Object { $_.$orrelationField -eq $CorrelationValue }
+        $user = $data | Where-Object { $_.$correlationField -eq $CorrelationValue }
     } else {
         $user = $null
     }
