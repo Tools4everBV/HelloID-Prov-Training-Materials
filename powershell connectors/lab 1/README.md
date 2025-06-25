@@ -16,9 +16,9 @@ In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bron
 
 2. Download de voorbeeldgegevens van de volgende GitHub-pagina:  
    👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:
-   - [`T4E_HELLOID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HELLOID_OrganizationalFunctions.csv)
-   - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HELLOID_OrganizationalUnits.csv)
-   - [`T4E_HELLOID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HELLOID_Persons.csv)
+   - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
+   - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
+   - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
    - [`T4E_HelloID_Contracts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Contracts.csv)
    - In het geopende scherm klik je rechtsboven op de **"Download"** knop. Dit is een icoontje met een pijl naar beneden.  
      Wanneer je met je muis over het icoontje gaat, verschijnt de tekst 'Download raw file'. Klik op dit icoontje om het bestand te downloaden.
@@ -104,7 +104,7 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
 4. Doe opnieuw een import om de wijziging toe te passen.
 
 📚 Meer info over complex mapping:  
-[Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/provisioning/complex-source-mappings.html)
+[Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/source-mappings/complex-source-mappings.html)
 
 ---
 
