@@ -15,7 +15,7 @@ Als er minimaal één verschil wordt gevonden, en het account-entitlement is eer
 ## 🧰 Stap 1 – Voorbereidingen
 
 1. Download het **startscript** voor het update-event:  
-   👉 [`update.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%208/update.ps1)
+   👉 [`update.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%208/update.ps1)
 
 2. Voeg dit script toe aan je PowerShell-doelsysteem onder het tabblad **Account → Account update**.
 

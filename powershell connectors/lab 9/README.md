@@ -17,7 +17,7 @@ We beginnen met het toevoegen van het juiste script aan je PowerShell-doelsystee
 ### Wat moet je doen?
 
 1. Download het **startscript** voor het delete-event vanuit de GitHub-repository:  
-   👉 [`delete.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%209/delete.ps1)
+   👉 [`delete.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%209/delete.ps1)
 
 2. Voeg dit script toe in HelloID bij je PowerShell-doelsysteem, onder het tabblad:  
    **Account → Account delete**
