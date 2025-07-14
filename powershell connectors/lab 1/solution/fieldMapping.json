@@ -17,6 +17,14 @@
 			}
 		},
 		{
+			"name": "Name.Convention",
+			"mode": "complex",
+			"value": "function formatNamingConvention() {\r\n    let HrNamingConvention = source.Naamgebruik_code;\r\n    let HelloIdNamingConvention = '';\r\n\r\n    switch (HrNamingConvention) {\r\n        case '1':\r\n            HelloIdNamingConvention = 'PB';\r\n            break;\r\n        case '2':\r\n            HelloIdNamingConvention = 'P';\r\n            break;\r\n        case '3':\r\n            HelloIdNamingConvention = 'BP';\r\n            break;\r\n        case '0':\r\n        default:\r\n            HelloIdNamingConvention = 'B';\r\n            break;\r\n    }\r\n    return HelloIdNamingConvention;\r\n}\r\nformatNamingConvention();",
+			"validation": {
+				"required": false
+			}
+		},
+		{
 			"name": "Name.FamilyName",
 			"mode": "field",
 			"value": "LastName",

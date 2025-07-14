@@ -2,8 +2,9 @@
 # HelloID-Conn-Prov-Source-Training-Departments
 #####################################################
 
-$importSourcePath = "C:\HelloID\SourceData\"
-$delimiter = ";"
+$config = $configuration | ConvertFrom-Json
+$importSourcePath = $config.path
+$delimiter = $config.delimiter
 
 function Get-SourceConnectorData { 
     [CmdletBinding()]
