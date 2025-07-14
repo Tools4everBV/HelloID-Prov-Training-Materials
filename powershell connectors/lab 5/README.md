@@ -32,7 +32,7 @@ Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst ver
 ### 📥 Startbestand importeren
 
 1. Download het startbestand `fieldMapping.json` uit de GitHub-repository:  
-   👉 [`fieldMapping.json`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%205/fieldMapping.json)
+   👉 [`fieldMapping.json`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%205/fieldMapping.json)
 
 2. Klik op **Import** mapping.  
 3. Selecteer het JSON-bestand dat je net hebt gedownload en bevestig de import.
@@ -164,7 +164,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 2. Zoek het veld `UserName` en wijzig de mapping naar **Complex (JavaScript)**.
 
 3. Gebruik het startscript van GitHub als basis voor je mapping:  
-   👉 [`getValueFromOtherSystem.js`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%205/getValueFromOtherSystem.js)
+   👉 [`getValueFromOtherSystem.js`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%205/getValueFromOtherSystem.js)
 
 4. Pas het script aan zodat het de waarde ophaalt uit het veld `SamAccountName` van het AD-doelsysteem.
 

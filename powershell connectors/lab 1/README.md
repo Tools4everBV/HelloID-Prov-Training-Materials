@@ -16,10 +16,10 @@ In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bron
 
 2. Download de voorbeeldgegevens van de volgende GitHub-pagina:  
    👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:
-   - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
-   - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
-   - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
-   - [`T4E_HelloID_Contracts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Contracts.csv)
+   - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
+   - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
+   - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
+   - [`T4E_HelloID_Contracts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Contracts.csv)
    - In het geopende scherm klik je rechtsboven op de **"Download"** knop. Dit is een icoontje met een pijl naar beneden.  
      Wanneer je met je muis over het icoontje gaat, verschijnt de tekst 'Download raw file'. Klik op dit icoontje om het bestand te downloaden.
    - Herhaal dit voor alle vier de bestanden.
@@ -35,8 +35,8 @@ In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bron
 3. Geef het bronsysteem een herkenbare naam, bijvoorbeeld **HR CSV bron**.
 4. Zet **Execute on-premises** aan, zodat de scripts lokaal worden uitgevoerd via de agent.
 5. Vervang nu de standaard scripts:
-   - Gebruik [`persons.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/persons.ps1) voor personen.
-   - Gebruik [`departments.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/departments.ps1) voor afdelingen.
+   - Gebruik [`persons.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/persons.ps1) voor personen.
+   - Gebruik [`departments.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/departments.ps1) voor afdelingen.
 6. Pas in beide scripts de variabele `$importSourcePath` aan naar het pad van de map die je eerder hebt aangemaakt.
 7. Klik op **Import raw data** om een eerste testimport uit te voeren.
 8. Controleer de gegevens via het tabblad **Raw data**.
@@ -55,7 +55,7 @@ Elke import doorloopt dezelfde stappen:
 
 ### 🧩 Stap 3 – Field mapping configureren
 
-1. Importeer het mappingbestand [`fieldMapping.json`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/fieldMapping.json) vanuit de GitHub-repository.
+1. Importeer het mappingbestand [`fieldMapping.json`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/fieldMapping.json) vanuit de GitHub-repository.
 
 2. Lees dit bestand twee keer in:
    - Eén keer op het **Persons** tabblad
@@ -88,7 +88,7 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
 1. Open de mapping voor personen en voeg een veld toe: `Name.Convention`.
 
 2. Zet dit veld om naar een **Complex mapping (JavaScript)** en gebruik als basis het startscript van GitHub:  
-   👉 [`formatNamingConvention.js`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%201/formatNamingConvention.js)
+   👉 [`formatNamingConvention.js`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/formatNamingConvention.js)
 
    Pas de startfunctie aan zodat de functie de `source.Naamgebruik_code` vertaalt naar een van de volgende codes:
 

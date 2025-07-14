@@ -15,7 +15,7 @@ Het script in de create-actie zorgt dat HelloID een account aanmaakt in het doel
 ## 🧰 Stap 1 – Voorbereidingen
 
 1. Download het  accountsbestand en plaats dit in de map `C:\HelloID\TargetData`:  
-   👉 [`accounts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/accounts.csv)
+   👉 [`accounts.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%207/accounts.csv)
 3. Controleer in HelloID op het tabblad **Configuration** of de waarden kloppen met wat je in Lab 6 hebt ingevuld:
    - `csvPath`: `C:\HelloID\TargetData\accounts.csv`
    - `csvDelimiter`: `;`
@@ -25,7 +25,7 @@ Het script in de create-actie zorgt dat HelloID een account aanmaakt in het doel
 ## 🔧 Stap 2 – Scripts koppelen en onnodige acties verwijderen
 
 1. Ga naar het tabblad **Account → Account create** van je PowerShell-doelsysteem.
-2. Vervang het standaardvoorbeeld door de **tekst uit het script [`create.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/blob/Feature-2025-material/powershell%20connectors/lab%207/create.ps1)** dat je in de vorige stap hebt gedownload.
+2. Vervang het standaardvoorbeeld door de **tekst uit het script [`create.ps1`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%207/create.ps1)** dat je in de vorige stap hebt gedownload.
 3. Verwijder de scripts voor de **Enable-** en **Disable-acties**.  
    Deze acties zijn niet nodig voor deze connector, en door de placeholder-scripts te verwijderen houd je de configuratie overzichtelijk en correct.
 
