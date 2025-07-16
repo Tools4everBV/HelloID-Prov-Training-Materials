@@ -153,7 +153,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 4. Controleer bij de betreffende persoon op het tabblad **Audit Logs** of HelloID het Active Directory-account succesvol heeft uitgedeeld.
 
-5. Ga naar het tabblad **Account** en controleer of het veld `SamAccountName` zichtbaar is onder het Active Directory-account.
+5. Ga naar het tabblad **Accounts** en controleer of het veld `SamAccountName` zichtbaar is onder het Active Directory-account.
 
 ---
 
