@@ -124,7 +124,7 @@ $importSourcePath = $connectionSettings.Path
 
 5. Doe een testimport om te controleren of het werkt.
 
-6. Herhaal dit voor het scheidingsteken (`$delimiter`).
+6. Herhaal dit voor het scheidingsteken (`delimiter`).
 
 💡 Waarom dit formulier gebruiken?  
 Met een configuratieformulier voorkom je hardcoded instellingen in je scripts.  
