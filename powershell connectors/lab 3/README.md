@@ -69,11 +69,11 @@ Het HelloID-veld hoort bij het **standaard persoonsmodel** van HelloID. Via de f
 Sommige doelsystemen verwachten een specifieke volgorde in de naamopbouw. Je bepaalt samen met de betrokkenen — of dat nu je klant is of je eigen organisatie — welke naamconventie je gebruikt:
 
 | Code | Voorbeeld                                 | Uitleg                             |
-|------|--------------------------------------------|------------------------------------|
+|------|-------------------------------------------|------------------------------------|
 | B    | Angie van den Hoeger                      | Geboortenaam                       |
-| PB   | Angie van de Dooley                       | Partnernaam – Geboortenaam         |
-| P    | Angie van den Hoeger – van de Dooley      | Partnernaam                        |
-| BP   | Angie van de Dooley – van den Hoeger      | Geboortenaam – Partnernaam         |
+| BP   | Angie van den Hoeger – van de Dooley      | Geboortenaam – Partnernaam         |
+| P    | Angie van de Dooley                       | Partnernaam                        |
+| PB   | Angie van de Dooley – van den Hoeger      | Partnernaam – Geboortenaam         |
 
 ---
 
