@@ -166,7 +166,7 @@ Die reference heb je nodig om vervolgscripts zoals update of delete goed te kunn
 2. Controleer op het tabblad **Entitlements** of er zowel een Active Directory-account als **een account van het PowerShell-doelsysteem** gekoppeld wordt.
 
 3. Voer een **Evaluate** uit.  
-   Controleer of er acties zijn gegenereerd voor het PowerShell-doelsysteem en of deze overeenkomen met wat je verwacht.  
+   Controleer of er **acties zijn gegenereerd voor het PowerShell-doelsysteem** en of deze overeenkomen met wat je verwacht.  
    (Bijvoorbeeld: wordt er voor beide personen een create-actie voorgesteld?)
 
 4. Voer daarna de **enforcement** uit om de acties echt uit te voeren.
