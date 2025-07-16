@@ -66,9 +66,9 @@ Deze tabel komt uit het lab *Lab 3 – Ontwerp maken voor het doelsysteem*.
 
 | Veldnaam            | Bronveld                               | Mapping type | Use in notifications | Store in account data |
 |---------------------|-----------------------------------------|--------------|-----------------------|------------------------|
-| `PartnerNamePrefix` | `Person.Name.FamilyNamePartnerPrefix`  | Field        | ❌                    | ❌                     |
-| `PartnerName`       | `Person.Name.FamilyNamePartner`        | Field        | ❌                    | ❌                     |
-| `NameConventionCode`| `Person.Name.Convention`               | Field        | ❌                    | ❌                     |
+| `PartnerNamePrefix` | `Name.FamilyNamePartnerPrefix`  | Field        | ❌                    | ❌                     |
+| `PartnerName`       | `Name.FamilyNamePartner`        | Field        | ❌                    | ❌                     |
+| `NameConventionCode`| `Name.Convention`               | Field        | ❌                    | ❌                     |
 
 ---
 
