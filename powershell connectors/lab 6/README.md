@@ -20,12 +20,6 @@ We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad 
 
 ### Wat moet je doen:
 
-## 🛠️ Stap 1 – Formulier aanmaken
-
-We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad naar het CSV-bestand en het scheidingsteken kunt instellen. Zo houd je die instellingen netjes uit je script.
-
-### Wat moet je doen:
-
 1. Ga in HelloID naar je PowerShell-doelsysteem.  
 2. Open het tabblad **Account**.  
 3. Open de configuratie van de **Custom connector configuration**.
