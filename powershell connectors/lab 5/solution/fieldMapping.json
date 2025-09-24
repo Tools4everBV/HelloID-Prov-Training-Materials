@@ -180,7 +180,7 @@
             "Create"
           ],
           "MappingMode": "Complex",
-          "Value": "\"function getSamAccountName() {\\r\\n    let SamAccountName = '';\\r\\n\\r\\n    // Voeg hier de logica toe om de bronwaarde correct te vertalen naar de HelloID waarde\\r\\n    if (typeof Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName !== 'undefined' && Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName) {\\r\\n        SamAccountName = Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName;\\r\\n    }\\r\\n    return SamAccountName;\\r\\n}\\r\\ngetSamAccountName();\"",
+          "Value": "\"function getSamAccountName() {\\r\\n    let SamAccountName = '';\\r\\n\\r\\n    // Voeg hier de logica toe om de bronwaarde correct te vertalen naar de HelloID waarde\\r\\n    if (typeof Person.Accounts.MicrosoftActiveDirectory.sAMAccountName !== 'undefined' && Person.Accounts._deefe99190174bf5b705876af828719d.sAMAccountName) {\\r\\n        SamAccountName = Person.Accounts.MicrosoftActiveDirectory.sAMAccountName;\\r\\n    }\\r\\n    return SamAccountName;\\r\\n}\\r\\ngetSamAccountName();\"",
           "UsedInNotifications": true,
           "StoreInAccountData": true
         }
