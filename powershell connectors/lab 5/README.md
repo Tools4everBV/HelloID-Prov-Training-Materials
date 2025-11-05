@@ -22,7 +22,7 @@ Als je deze connector **net hebt aangemaakt**, dan heeft HelloID automatisch een
 Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst verwijderen.
 
 1. Ga naar het tabblad **Fields** van je PowerShell-doelsysteem.  
-2. Klik rechtsboven op **Delete all**.  
+2. Klik in het midden van het scherm op de rode knop **Delete all**.  
 3. Bevestig dat je alle bestaande velden wilt verwijderen.
 
 > 💡 Als je deze stap overslaat, blijven velden uit de standaardmapping bestaan — ook als ze niet in het nieuwe field mapping bestand staan.  

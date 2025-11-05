@@ -45,9 +45,9 @@ Stel: je bent HelloID-beheerder bij een organisatie die een eigen intranet heeft
 In deze stap zet je op een rij welke velden je nodig hebt, waar ze vandaan komen en of ze zichtbaar of wijzigbaar moeten zijn. Denk vanuit de provisioning-actie: welke gegevens zijn echt nodig om een account aan te maken of te wijzigen?
 
 ℹ️ Een *bronveld* is een veld dat via de ruwe data afkomstig is uit het HR-systeem (bijvoorbeeld via een CSV-bestand of API).  
-Het HelloID-veld hoort bij het **standaard persoonsmodel** van HelloID. Via de field mapping koppel je het bronveld aan het juiste HelloID-veld.
+Het HelloID-veld hoort bij het **standaard persoonsmodel** van HelloID. Via de field mapping koppel je het HelloID-veld aan het juiste attribuut uit het doelsysteem.
 
-| Attribuut            | Bronveld                                               | Update? | Zichtbaar bij persoon | Notificatie? |
+| Attribuut            | HelloID-veld                                            | Update? | Zichtbaar bij persoon | Notificatie? |
 |----------------------|---------------------------------------------------------|---------|------------------------|--------------|
 | Department           | PrimaryContract.Department.DisplayName                  | ✅      | ❌                     | ❌           |
 | DisplayName          | DisplayName                                             | ✅      | ✅                     | ✅           |

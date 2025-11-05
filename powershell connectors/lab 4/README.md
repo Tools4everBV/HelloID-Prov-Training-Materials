@@ -46,7 +46,7 @@ Standaard staat een nieuw doelsysteem op disabled. Dat betekent dat HelloID nog 
 ### 🔨 Wat moet je doen?
 
 1. Ga naar het tabblad General van je doelsysteem.
-2. Zet de optie Disable target system uit, zodat je systeem actief is.
+2. Zet de optie Disable System uit, zodat je systeem actief is.
 3. Je hoeft niets op te slaan — de wijziging wordt automatisch toegepast zodra je de toggle uitschakelt.
 
 ---
@@ -78,7 +78,7 @@ Je gaat straks met een CSV-bestand werken waarin HelloID provisioningacties opsl
 1. Open je doelsysteem en ga naar het tabblad General.
 2. Open de configuratie van de **Concurrent action configuration**.
 3. Zet het maximum aantal gelijktijdige acties op 1.
-4. Klik op Apply om de wijziging op te slaan.
+4. Je hoeft niets op te slaan — de wijziging wordt automatisch toegepast.
 
 ### 🧠 Waarom is dit belangrijk?
 

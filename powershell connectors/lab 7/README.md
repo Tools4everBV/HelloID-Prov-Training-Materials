@@ -80,7 +80,7 @@ Met deze stap voorkom je dat HelloID dubbele accounts aanmaakt. Je script geeft 
    }
    ```
 
-💡 Dit blok in het startscript wordt automatisch aangeroepen als HelloID wil controleren of een account al bestaat.  
+💡 Dit blok in het startscript wordt automatisch aangeroepen als HelloID een bestaand account heeft gevonden.  
 Met `$outputContext.AccountCorrelated = $true` geef je aan dat er een bestaand account is gevonden.  
 Via `$outputContext.AccountReference` geef je de unieke ID (referentie) van het account terug aan HelloID — dit is belangrijk voor vervolgacties zoals updates of deletes.  
 De `$outputContext.Data` bevat optioneel extra gegevens over het gevonden account.
