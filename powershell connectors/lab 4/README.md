@@ -93,12 +93,14 @@ Je doelsysteem staat nu klaar om provisioningacties te ontvangen van HelloID. We
 HelloID voert deze acties uit op basis van de actuele gegevens in de persoonssnapshot. Zodra iemand in scope valt voor een entitlement, bepaalt HelloID wat er moet gebeuren en roept het juiste PowerShell-script aan in het doelsysteem.
 
 Daarom heb je in dit lab alvast gezorgd dat:
+
 - HelloID de scripts uitvoert via de lokale agent, zodat je kunt werken met bestanden op je eigen server.
 - het doelsysteem actief is (niet disabled).
 - de thresholds zo zijn ingesteld dat testacties soepel doorgaan, maar een onverwacht hoog aantal acties toch wordt tegengehouden.
 - acties netjes één voor één worden uitgevoerd, zodat je geen last hebt van bestandsvergrendeling in je CSV-bestand.
 
 📚 In de volgende labs leer je hoe je de provisioning-scripts configureert en test:
+
 - Lab 5 – Field mapping instellen  
 - Lab 6 – Configuratieformulier toevoegen  
 - Lab 7 t/m 9 – Create-, Update- en Delete-scripts maken en testen  

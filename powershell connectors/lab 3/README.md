@@ -3,6 +3,7 @@
 ## Business consultancy-fase
 
 ### Wat ga je doen?
+
 In dit lab ga je een ontwerp maken voor een doelsysteem. Dit is een belangrijke voorbereidende stap voordat je scripts en configuratie gaat opzetten. Je brengt in kaart wat de connector moet doen, welke gegevens er nodig zijn, en hoe je die wilt aanleveren.
 
 Of je nou implementatiepartner bent of zelf HelloID beheert binnen je eigen organisatie: met dit ontwerp leg je de basis voor een goede provisioning-koppeling.

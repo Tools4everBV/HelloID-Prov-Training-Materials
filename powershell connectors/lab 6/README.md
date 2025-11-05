@@ -7,6 +7,7 @@ In dit lab maak je een **configuratieformulier** aan in HelloID. Daarmee kun je 
 
 💡Waarom dit handig is:
 Met een configuratieformulier houd je alle instellingen overzichtelijk bij elkaar, op één centrale plek. Dat heeft een paar voordelen:
+
 - Als er iets verandert, hoef je niet je script aan te passen, je past gewoon de waarden in het formulier aan.
 - Andere beheerders kunnen dit ook aanpassen via de HelloID-interface, zonder dat ze iets in de PowerShell-code hoeven te wijzigen.
 - Je voorkomt dat gevoelige of klantspecifieke gegevens hardcoded in het script staan.
@@ -18,7 +19,7 @@ Met een configuratieformulier houd je alle instellingen overzichtelijk bij elkaa
 
 We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad naar het CSV-bestand en het scheidingsteken kunt instellen. Zo houd je die instellingen netjes uit je script.
 
-### Wat moet je doen:
+### Wat moet je doen
 
 1. Ga in HelloID naar je PowerShell-doelsysteem.  
 2. Open het tabblad **Account**.  
@@ -26,7 +27,7 @@ We gaan een formulier toevoegen aan je PowerShell-doelsysteem waarin je het pad 
 
 > ✂️ **Let op:** de eerste keer dat je het formulier opent, zie je een voorbeeldconfiguratie met allerlei invoervelden zoals wachtwoord, e-mail, radioknoppen en dropdowns.  
 > Voor deze training heb je die allemaal niet nodig.  
->  
+> 
 > **Verwijder alles behalve het eerste veld** (type `"input"` met als label “Example required text”).  
 > Gebruik dat veld als basis en pas de inhoud aan voor `csvPath`.  
 > Vervolgens kun je het veld dupliceren en aanpassen voor `csvDelimiter`.

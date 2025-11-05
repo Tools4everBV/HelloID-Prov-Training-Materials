@@ -14,6 +14,7 @@ In dit lab ga je aan de slag met twee belangrijke beveiligingsmaatregelen in Hel
 ## 🛡️ Stap 1 – Threshold instellen tegen onverwachte verwijderingen
 
 HelloID vergelijkt bij elke import de nieuwe brongegevens met de vorige snapshot van dezelfde bron. Daarbij kijkt het systeem naar:
+
 - hoeveel personen zijn **verwijderd**,  
 - hoeveel personen zijn **toegevoegd**,  
 - en of er velden **leeg zijn geraakt** terwijl ze eerst nog gevuld waren.  

@@ -32,9 +32,11 @@ Bij een delete-actie weet HelloID al welk account verwijderd moet worden. Die in
 
 1. In het script gebruik je de **account reference** van HelloID om het juiste account op te zoeken.  
    Deze reference is beschikbaar via:  
+
    ```powershell
    $actionContext.References.Account
    ```  
+
    👉 Dit is de unieke waarde die eerder is opgeslagen toen het account werd aangemaakt of gecorreleerd, en die je nu gebruikt om het juiste account in `accounts.csv` te vinden.
 
 2. Voeg een aanroep toe naar `Get-CsvUser` om de juiste regel op te halen. Gebruik:
@@ -46,7 +48,7 @@ Bij een delete-actie weet HelloID al welk account verwijderd moet worden. Die in
    - Check of de juiste gebruiker wordt gevonden
    - Als de gebruiker niet wordt gevonden, logt het script een melding, maar zet wel `Success = $true`
 
-ℹ️ Let op: het delete-script moet altijd succesvol zijn — ook als er geen match is. 
+ℹ️ Let op: het delete-script moet altijd succesvol zijn — ook als er geen match is.
 Je wilt namelijk niet dat de hele provisioningflow wordt geblokkeerd als het account bijvoorbeeld al verwijderd is.
 
 ---
@@ -76,6 +78,7 @@ In deze stap controleer je of het script daadwerkelijk een regel uit het CSV-bes
 ### Wat moet je doen?
 
 1. Zet **tijdelijk** bovenin het script:ja
+
    ```powershell
    $actionContext.dryRun = $false
    ```

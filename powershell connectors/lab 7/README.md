@@ -134,9 +134,11 @@ HelloID voert provisioningacties standaard uit in **dry run**-modus tijdens een 
 Omdat je nu wilt controleren of er daadwerkelijk iets wordt toegevoegd aan het CSV-bestand, moet je deze beveiliging tijdelijk uitschakelen.
 
 1. Voeg **tijdelijk bovenin het script** de volgende regel toe:
+
    ```powershell
    $actionContext.dryRun = $false
    ```
+
    Hiermee geef je expliciet aan dat HelloID de schrijfactie wél mag uitvoeren tijdens de preview.
 2. Kies in HelloID een persoon die **nog niet voorkomt** in het bestand `accounts.csv`.
 
