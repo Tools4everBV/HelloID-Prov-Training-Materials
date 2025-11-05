@@ -64,7 +64,7 @@ Elke import doorloopt dezelfde stappen:
 
 3. Voer opnieuw een import uit.
 
-4. Open het onderdeel **Persons** in je bronsysteem en klik op een persoon om te controleren of de velden goed zijn gevuld.
+4. Open het onderdeel **Persons** en klik op een persoon om te controleren of de velden goed zijn gevuld.
 
 🔄 Let op bij wijzigingen:  
 Heb je net iets aangepast aan je mapping of script?  
