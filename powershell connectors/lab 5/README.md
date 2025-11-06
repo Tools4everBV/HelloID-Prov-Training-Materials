@@ -1,6 +1,7 @@
 # Lab 5 – Field mapping instellen
 
 ## Wat ga je doen?
+
 In dit lab leer je hoe je de **field mapping** van een doelsysteem configureert. Je werkt met een voorgevulde mapping, voert aanpassingen uit, koppelt Active Directory en voegt optioneel een complexe mapping toe voor de displayname.
 
 💡 **Waarom is dit belangrijk?**  
@@ -21,7 +22,7 @@ Als je deze connector **net hebt aangemaakt**, dan heeft HelloID automatisch een
 Voordat je de nieuwe mapping importeert, moet je die bestaande mapping eerst verwijderen.
 
 1. Ga naar het tabblad **Fields** van je PowerShell-doelsysteem.  
-2. Klik rechtsboven op **Delete all**.  
+2. Klik in het midden van het scherm op de rode knop **Delete all**.  
 3. Bevestig dat je alle bestaande velden wilt verwijderen.
 
 > 💡 Als je deze stap overslaat, blijven velden uit de standaardmapping bestaan — ook als ze niet in het nieuwe field mapping bestand staan.  
@@ -62,7 +63,7 @@ Deze tabel komt uit het lab *Lab 3 – Ontwerp maken voor het doelsysteem*.
 
 ### 🔧 Aanpassingen die je moet doen
 
-#### ➕ Voeg de volgende velden toe aan de mapping:
+#### ➕ Voeg de volgende velden toe aan de mapping
 
 | Veldnaam            | Bronveld                               | Mapping type | Use in notifications | Store in account data |
 |---------------------|-----------------------------------------|--------------|-----------------------|------------------------|
@@ -72,12 +73,13 @@ Deze tabel komt uit het lab *Lab 3 – Ontwerp maken voor het doelsysteem*.
 
 ---
 
-#### ❌ Verwijder het volgende veld:
+#### ❌ Verwijder het volgende veld
+
 - `Manager` (dit wordt niet gebruikt in deze training)
 
 ---
 
-#### ✔️ Controleer per veld de instellingen:
+#### ✔️ Controleer per veld de instellingen
 
 - Moet het veld **zichtbaar zijn op het accounttabblad** van de persoon? → vink **Store in account data** aan.  
 - Moet het veld **gebruikt worden in notificaties**? → vink **Use in notifications** aan.
@@ -104,8 +106,9 @@ Gebruik hiervoor onderstaande referentie uit **tabel 3.3 van Lab 3**:
 
 #### 🧪 Testen van de mapping
 
-- Gebruik de **Preview-functionaliteit** (rechtsboven in het scherm)  
-- Test zowel het **create-event** als het **update-event**  
+- Gebruik de **Preview-functionaliteit** (rechtsboven in het scherm)
+- Kies een medewerker uit de source waarbij een partnernaam is ingevuld
+- Test zowel het **create-event** als het **update-event**
 - Controleer of de waarden correct, compleet en logisch zijn op basis van jouw testpersoon
 
 ---

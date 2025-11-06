@@ -86,6 +86,7 @@ In deze stap controleer je of het script daadwerkelijk een wijziging aanbrengt i
 Je voert de test uit via de **previewfunctie** van HelloID, maar schakelt tijdelijk `dryRun` uit zodat de schrijfactie ook echt wordt uitgevoerd.
 
 1. Voeg **tijdelijk bovenin het script** de volgende regel toe:
+
    ```powershell
    $actionContext.dryRun = $false
    ```

@@ -14,6 +14,7 @@ In dit lab ga je aan de slag met twee belangrijke beveiligingsmaatregelen in Hel
 ## 🛡️ Stap 1 – Threshold instellen tegen onverwachte verwijderingen
 
 HelloID vergelijkt bij elke import de nieuwe brongegevens met de vorige snapshot van dezelfde bron. Daarbij kijkt het systeem naar:
+
 - hoeveel personen zijn **verwijderd**,  
 - hoeveel personen zijn **toegevoegd**,  
 - en of er velden **leeg zijn geraakt** terwijl ze eerst nog gevuld waren.  
@@ -45,7 +46,7 @@ Dit beschermt je provisioningproces tegen fouten door onjuiste of incomplete geg
 3. Sla het bestand op.  
 4. Ga terug naar HelloID en start een import van het nieuwe csv-bronsysteem met **'Start Import'**.
 
-> ⛔️ De import wordt nu geblokkeerd. HelloID ziet dat er een persoon ontbreekt en grijpt in — precies wat je met de threshold wilde bereiken. Een geblokkeerde import kun je handmatig goedkeuren via het tabblad **Import** van je bronsysteem.
+> ⛔️ De import wordt nu geblokkeerd. HelloID ziet dat er een persoon ontbreekt en grijpt in — precies wat je met de threshold wilde bereiken. Een geblokkeerde import kun je handmatig goedkeuren via de overzichtspagina van de van je bronsystemen.
 
 ---
 
@@ -88,7 +89,7 @@ Wanneer een persoon geblokkeerd wordt vanwege ontbrekende verplichte velden, kun
 3. Ga naar het tabblad **Blocked Persons**.  
 4. Hier zie je een lijst van personen die geblokkeerd zijn. Klik op het **rapporticoontje** om de reden van blokkering te bekijken.
 
-> Deze lijst bevat personen die zijn tegengehouden door **thresholds in de field mapping** omdat een verplicht veld leeg is gelaten (zoals `NickName`).
+> Deze lijst bevat personen die zijn tegengehouden omdat een verplicht veld leeg is gelaten (zoals `NickName`).
 
 ---
 
