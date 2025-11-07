@@ -118,8 +118,8 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
 
 4. Pas je script aan om de waarde uit de configuratie op te halen:
 ```powershell
-$connectionSettings = ConvertFrom-Json $configuration
-$importSourcePath = $connectionSettings.Path
+$config = ConvertFrom-Json $configuration
+$importSourcePath = $config.path
 ```
 
 5. Doe een testimport om te controleren of het werkt.
