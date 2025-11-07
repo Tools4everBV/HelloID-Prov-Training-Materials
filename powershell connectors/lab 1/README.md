@@ -114,7 +114,7 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
 
 2. Klik op het moersleutel-icoontje naast de tekst `Custom connector configuration` om de **Form JSON editor** te openen.
 
-3. Voeg een tekstveld toe voor het pad naar je brondata (`csvPath`).
+3. Voeg een tekstveld toe voor het pad naar je brondata (`path`).
 
 4. Pas je script aan om de waarde uit de configuratie op te halen:
 ```powershell
