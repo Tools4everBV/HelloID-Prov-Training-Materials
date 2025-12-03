@@ -92,7 +92,7 @@ function New-CsvUser {
     $data = [array]$csv + $User | Sort-Object Id
     $data | Export-Csv -Path $Path -Delimiter $Delimiter -NoTypeInformation
 
-    return $user
+    return $User
 }
 #endregion
 
