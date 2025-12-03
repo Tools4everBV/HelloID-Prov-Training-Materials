@@ -49,7 +49,7 @@ Elke import doorloopt dezelfde stappen:
 **Script → Raw Data → Mapping → Snapshot → Personen**
 
 📚 Meer uitleg:  
-[Add a source system – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/add,-edit,-or-remove-a-source-system.html#add-a-source-system)
+[Add a source system – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/add--edit--or-remove-a-source-system.html#add-a-source-system)
 
 ---
 
