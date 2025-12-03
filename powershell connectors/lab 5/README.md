@@ -134,7 +134,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 ### 🗺️ Controleren of het veld uit de Microsoft Active Directory-connector correct is ingesteld
 
-1. Ga naar je Microsoft Active Directory-doelsysteem en open het tabblad **Fields**.
+1. Ga naar je Active Directory-doelsysteem en open het tabblad **Fields**.
 
 2. Zoek het veld `SamAccountName` in de lijst.
 
