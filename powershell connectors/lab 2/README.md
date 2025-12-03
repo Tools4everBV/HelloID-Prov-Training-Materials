@@ -46,7 +46,7 @@ Dit beschermt je provisioningproces tegen fouten door onjuiste of incomplete geg
 3. Sla het bestand op.  
 4. Ga terug naar HelloID en start een import van het nieuwe csv-bronsysteem met **'Start Import'**.
 
-> ⛔️ De import wordt nu geblokkeerd. HelloID ziet dat er een persoon ontbreekt en grijpt in — precies wat je met de threshold wilde bereiken. Een geblokkeerde import kun je handmatig goedkeuren via de overzichtspagina van de van je bronsystemen.
+> ⛔️ De import wordt nu geblokkeerd. HelloID ziet dat er een persoon ontbreekt en grijpt in — precies wat je met de threshold wilde bereiken. De geblokkeerde import mag je handmatig goedkeuren via de overzichtspagina van de van je bronsystemen.
 
 ---
 
