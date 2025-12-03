@@ -15,7 +15,7 @@ In dit lab ga je een nieuw PowerShell-bronsysteem instellen in HelloID. Dit bron
    `C:\HelloID\SourceData\`
 
 2. Download de voorbeeldgegevens van de volgende GitHub-pagina:  
-   👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/Feature-2025-material/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:
+   👉 [Source data - GitHub](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data). Klik op elk bestand om het te openen:
    - [`T4E_HelloID_OrganizationalFunctions.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalFunctions.csv)
    - [`T4E_HelloID_OrganizationalUnits.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_OrganizationalUnits.csv)
    - [`T4E_HelloID_Persons.csv`](https://github.com/Tools4everBV/HelloID-Prov-Training-Materials/tree/main/powershell%20connectors/lab%201/source%20data/T4E_HelloID_Persons.csv)
