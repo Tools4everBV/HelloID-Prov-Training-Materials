@@ -113,9 +113,9 @@ Gebruik hiervoor onderstaande referentie uit **tabel 3.3 van Lab 3**:
 
 ---
 
-## 🧰 Stap 3 – AD-veld gebruiken in je PowerShell-connector
+## 🧰 Stap 3 – Veld uit de Microsoft Active Directory-connector gebruiken in je PowerShell-connector
 
-In deze stap maak je gebruik van een veld uit de AD-connector binnen je PowerShell-doelsysteem.  
+In deze stap maak je gebruik van een veld uit de Microsoft Active Directory-connector binnen je PowerShell-doelsysteem.  
 Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruiken in de mapping van het PowerShell-systeem.
 
 ---
@@ -128,13 +128,13 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 3. Selecteer het **Microsoft Active Directory**-doelsysteem als afhankelijk systeem.
 
-> 💡 Hierdoor kun je gegevens uit het AD-systeem ophalen en gebruiken in deze connector, bijvoorbeeld de gebruikersnaam uit het AD-veld `SamAccountName`.
+> 💡 Hierdoor kun je gegevens uit het Microsoft Active Directory-systeem ophalen en gebruiken in deze connector, bijvoorbeeld de gebruikersnaam uit het AD-veld `SamAccountName`.
 
 ---
 
-### 🗺️ Controleren of het AD-veld correct is ingesteld
+### 🗺️ Controleren of het veld uit de Microsoft Active Directory-connector correct is ingesteld
 
-1. Ga naar je AD-doelsysteem en open het tabblad **Fields**.
+1. Ga naar je Microsoft Active Directory-doelsysteem en open het tabblad **Fields**.
 
 2. Zoek het veld `SamAccountName` in de lijst.
 
