@@ -131,6 +131,14 @@
 			}
 		},
 		{
+			"name": "Manager.ExternalId",
+			"mode": "field",
+			"value": "Leidinggevende",
+			"validation": {
+				"required": false
+			}
+		},
+		{
 			"name": "StartDate",
 			"mode": "field",
 			"value": "BegindatumContract",
