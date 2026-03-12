@@ -50,7 +50,7 @@ Na het opslaan verschijnt er een extra tabblad genaamd **Configuration**. Daar v
 8. Klik ook hier rechtsboven op **Apply** om de waarden op te slaan.
 
 > Tip: Als je meer wilt weten over welke type invoervelden je kunt gebruiken of wat er nog meer mogelijk is, bekijk dan de documentatie:  
-> [Configure an input form – HelloID Docs](https://docs.helloid.com/en/provisioning/target-systems/powershell-target-systems/input-forms--provisioning-systems-.html)
+> [Configure an input form – HelloID Docs](https://docs.helloid.com/en/index-en.html?contextId=inputformsprovisioning)
 
 ---
 
