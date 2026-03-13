@@ -49,7 +49,7 @@ Elke import doorloopt dezelfde stappen:
 **Script → Raw Data → Mapping → Snapshot → Personen**
 
 📚 Meer uitleg:  
-[Add a source system – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/add--edit--or-remove-a-source-system.html#add-a-source-system)
+[Add a source system – HelloID Docs](https://docs.helloid.com/en/index-en.html?contextId=addeditremovesourcesystem)
 
 ---
 
@@ -104,7 +104,7 @@ Je gaat nu zelf zo'n complex mapping instellen voor het veld `Name.Convention`, 
 4. Doe opnieuw een import om de wijziging toe te passen.
 
 📚 Meer info over complex mapping:  
-[Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/provisioning/source-systems/source-mappings/complex-source-mappings.html)
+[Complex Source Mappings – HelloID Docs](https://docs.helloid.com/en/index-en.html?contextId=complexsourcemappings)
 
 ---
 
@@ -131,7 +131,7 @@ Met een configuratieformulier voorkom je hardcoded instellingen in je scripts.
 Zo kun je het script flexibel hergebruiken in andere omgevingen, en collega’s kunnen het makkelijker beheren zonder in de code te hoeven duiken.
 
 📚 Meer info over inputformulieren:  
-[Input Forms – HelloID Docs](https://docs.helloid.com/en/provisioning/target-systems/powershell-target-systems/input-forms--provisioning-systems-.html)
+[Input Forms – HelloID Docs](https://docs.helloid.com/en/index-en.html?contextId=inputformsprovisioning)
 
 ---
 

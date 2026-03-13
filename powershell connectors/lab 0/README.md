@@ -37,7 +37,7 @@ De Provisioning Agent is een soort brug tussen HelloID in de cloud en je lokale 
 ### 🛠️ Stap 2 – Agent installeren (alleen als deze nog niet draait)
 
 1. Open de volgende documentatiepagina:  
-   👉 **[Install the on-premises agent](https://docs.helloid.com/en/agent/install-the-on-premises-agent-services.html)**
+   👉 **[Install the on-premises agent](https://docs.helloid.com/en/index-en.html?contextId=installonpremisesagent)**
 2. Volg de stappen in het artikel om de **HelloID Agent** te downloaden en te installeren op de server.
 3. Zorg ervoor dat:
    - De service na installatie automatisch opstart.
