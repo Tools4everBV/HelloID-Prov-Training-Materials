@@ -145,7 +145,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 ---
 
-### 🧪 Acitve Directory account aanmaken via een business rule
+### 🧪 Active Directory account aanmaken via een business rule
 
 1. Maak een nieuwe business rule waarbij in de **conditie** slechts één persoon wordt geselecteerd (bijvoorbeeld op personeelsnummer) uit de csv-bronconnector. Zo weet je zeker dat de benodigde gegevens beschikbaar zijn.
 
