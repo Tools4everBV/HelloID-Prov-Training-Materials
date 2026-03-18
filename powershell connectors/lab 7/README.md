@@ -161,7 +161,7 @@ De previewfunctie is handig voor losse scripts, maar uiteindelijk wil je weten o
 HelloID geeft **alleen via een business rule** een entitlement uit. Pas op dat moment wordt ook de **account reference** opgeslagen.  
 Die reference heb je nodig om vervolgscripts zoals update of delete goed te kunnen testen. Als je dus verder wilt testen via de previewfunctie, moet het account eerst zijn uitgedeeld via een business rule.
 
-1. Open de business rule die je eerder hebt aangemaakt (in **Lab 5.2**) en voeg twee personen toe aan de conditie:
+1. Open de business rule die je eerder hebt aangemaakt (in **Lab 5.3**) en voeg twee personen toe aan de conditie:
    - Eén persoon die **al voorkomt** in het bestand `accounts.csv`.
    - Eén persoon die **nog niet voorkomt**.
 
