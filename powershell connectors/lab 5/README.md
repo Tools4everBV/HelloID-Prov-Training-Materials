@@ -79,6 +79,11 @@ Deze tabel komt uit het lab *Lab 3 – Ontwerp maken voor het doelsysteem*.
 
 ---
 
+#### Het veld UserName
+- Het veld **UserName** map je nu nog niet. Dit doe je bij **stap 3**
+
+---
+
 #### ✔️ Controleer per veld de instellingen
 
 - Moet het veld **zichtbaar zijn op het accounttabblad** van de persoon? → vink **Store in account data** aan.  
