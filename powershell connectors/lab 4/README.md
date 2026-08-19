@@ -78,7 +78,7 @@ Je gaat straks met een CSV-bestand werken waarin HelloID provisioningacties opsl
 1. Open je doelsysteem en ga naar het tabblad General.
 2. Open de configuratie van de **Concurrent action configuration**.
 3. Zet het maximum aantal gelijktijdige acties op 1.
-4. Je hoeft niets op te slaan — de wijziging wordt automatisch toegepast.
+4. Klik op **apply** om de wijziging op te slaan.
 
 ### 🧠 Waarom is dit belangrijk?
 
