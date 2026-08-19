@@ -154,7 +154,7 @@ Het doel is om de waarde van `SamAccountName` uit Active Directory te hergebruik
 
 1. Maak een nieuwe business rule waarbij in de **conditie** slechts één persoon wordt geselecteerd (bijvoorbeeld op personeelsnummer) uit de csv-bronconnector. Zo weet je zeker dat de benodigde gegevens beschikbaar zijn.
 
-2. Zorg ervoor dat aan deze regel een Active Directory **Account Entitlement** wordt gekoppeld en publiceer de business rule.
+2. Zorg ervoor dat aan deze regel een *Active Directory* **Account Entitlement** wordt gekoppeld en publiceer de business rule.
 
 3. Voer een evaluatie uit van de business rule.  
    Wordt er een **create-actie** voorgesteld voor het Active Directory-doelsysteem? Voer dan een **enforcement** uit om het account daadwerkelijk toe te wijzen.
